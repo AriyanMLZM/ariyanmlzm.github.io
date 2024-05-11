@@ -1,8 +1,12 @@
 import React from 'react'
 
+import { Home } from './pages'
+
 const App = () => {
   return (
-    <div>App</div>
+    <main className="bg-[#000] flex justify-center items-center h-screen">
+      <Home />
+    </main>
   )
 }
 
