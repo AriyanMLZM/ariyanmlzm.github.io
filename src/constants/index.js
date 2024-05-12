@@ -10,6 +10,7 @@ import {
   proj10,
   proj11,
   proj12,
+  proj13,
   proj2,
   proj3,
   proj4,
@@ -69,6 +70,15 @@ export const projects = [
     github: 'https://github.com/AriyanMLZM/react-nikeshop',
     img1: br,
     img2: proj2,
+  },
+  {
+    title: "T-Designer",
+    info: 'AI T-shirt Designer',
+    techs: 'threejs react tailwind openai',
+    text: 'A shirt designer that was created with Three js. Change the color, Upload your own images to use as logo or full texture, Ask AI to design a logo or pattern for you, Configure the logo; All that to design your t-shirt and save it.',
+    github: 'https://github.com/AriyanMLZM/threejs-react-AI-powered-T-shirt-designer',
+    img1: bt,
+    img2: proj13,
   },
   {
     title: 'Lexical Analyzer',
