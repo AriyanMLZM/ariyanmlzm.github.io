@@ -2,7 +2,7 @@ import React from 'react'
 
 import { about } from '../constants'
 
-import { github, gmail, phone } from '../assets/icons'
+import { github, gmail, phone, tel, wat } from '../assets/icons'
 
 const Footer = () => {
   return (
@@ -11,9 +11,23 @@ const Footer = () => {
         <h2 className="text-right">{'<footer>'}</h2>
         <h2 className="text-rignt">{'</footer>'}</h2>
       </div>
-      <div className="w-[50%] flex gap-20 items-center justify-center pl-4">
+      <div className="w-[50%] flex md:gap-20 gap-10 items-center justify-center pl-4">
         <a href={about.github} target="_blank" rel="noopener noreferrer">
           <img className="md:w-[80px] w-[60px]" src={github} alt="github" />
+        </a>
+        <a
+          href={about.tel}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="md:w-[80px] w-[60px]" src={tel} alt="telegram" />
+        </a>
+        <a
+          href={about.wat}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="md:w-[80px] w-[60px]" src={wat} alt="whatsapp" />
         </a>
         <a
           href={`mailto:${about.gmail}`}

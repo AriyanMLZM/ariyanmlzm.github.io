@@ -36,6 +36,8 @@ export const about = {
   github: 'https://github.com/AriyanMLZM',
   gmail: 'ryanmolazem@gmail.com',
   phone: '+989175894212',
+  tel: 'https://t.me/ariyanmlzm',
+  wat: 'https://wa.me/+989175894212',
   exp: [
     {
       title: 'Bachelor of Computer Engineering',
