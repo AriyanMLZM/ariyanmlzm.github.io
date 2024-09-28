@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const Button = ({ children, active = false, tab = null, func }) => {
+const Button = ({ children, active = false, tab, func }: {
+  children: ReactNode; active?: boolean, tab?: number, func: any
+}) => {
   return (
     <button
       type="button"
