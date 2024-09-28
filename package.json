@@ -14,17 +14,23 @@
   "dependencies": {
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.6",
+    "@types/three": "^0.168.0",
+    "@types/uuid": "^10.0.0",
     "gh-pages": "^6.1.1",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.164.1",
+    "three-stdlib": "^2.32.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/lodash": "^4.17.7",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
@@ -33,6 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
+    "typescript": "^5.6.2",
     "vite": "^5.2.0"
   }
 }

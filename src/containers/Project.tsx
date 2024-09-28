@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { projects } from '../constants'
 import { back, github } from '../assets/icons'
 
