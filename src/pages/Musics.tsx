@@ -14,7 +14,7 @@ const Musics = ({
 	ind: number
 	play: boolean
 	handleClose: () => void
-	changeMusic: (action: number, ind: number, timeout: boolean) => void
+	changeMusic: (action: number, ind?: number, timeout?: boolean) => void
 }) => {
 	return (
 		<Html

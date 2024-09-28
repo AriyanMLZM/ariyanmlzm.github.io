@@ -23,6 +23,7 @@
     "react-dom": "^18.2.0",
     "three": "^0.164.1",
     "three-stdlib": "^2.32.2",
+    "ts-node": "^10.9.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

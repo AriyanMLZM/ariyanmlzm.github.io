@@ -11,7 +11,7 @@ const Nav = ({
 
 	return (
 		<>
-			<Tab props={{ text: 'About', ind: 1, handleClick }} />
+			<Tab text="About" ind={1} handleClick={handleClick} />
 		</>
 	)
 }

@@ -25,7 +25,7 @@ const Projects = ({ handleClose }: { handleClose: () => void }) => {
 				{index === -1 && (
 					<List handleClick={handleClick} handleClose={handleClose} />
 				)}
-				{index !== -1 && <Project index={index} func={handleClick} />}
+				{index !== -1 && <Project index={index} handleClick={handleClick} />}
 			</main>
 		</Html>
 	)
