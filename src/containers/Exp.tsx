@@ -9,8 +9,8 @@ const Exp = () => {
 				<h2 className="text-right">{'<p>'}</h2>
 				<h2 className="text-rignt">{'</p>'}</h2>
 			</div>
-			<div className="w-[50%] flex flex-col justify-center pl-4 text-[28px] md:text-[35px]">
-				{about.exp.map((item) => (
+			<div className="w-[50%] flex flex-col overflow-y-auto justify-center pl-4 text-[28px] md:text-[35px]">
+				{about.exp.map((item: any) => (
 					<div className="mb-6" key={uuid()}>
 						<h1 className="text-white font-bold" key={uuid()}>
 							{item.title}
