@@ -12,6 +12,7 @@ export default defineConfig({
 			manifest: {
 				display: 'fullscreen',
 				background_color: '#080a1a',
+				scope: '/',
 				start_url: '/',
 				name: 'Ariyan Molazem',
 				short_name: 'Ariyan Molazem',
