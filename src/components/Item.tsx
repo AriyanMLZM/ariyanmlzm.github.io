@@ -26,15 +26,19 @@ const Item = ({
 					className="absolute z-1 w-full select-none pointer-events-none rounded-[20px]"
 				/>
 			</div>
-			<h1 key={uuid()} className="text-white text-[28px] mt-6">
-				{item.title}
-			</h1>
-			<h2 key={uuid()} className="text-primary text-[25px] mt-2">
-				{item.info}
-			</h2>
-			<h2 key={uuid()} className="text-orange-500 text-[22px] mt-6">
-				{item.techs}
-			</h2>
+			<div className="flex flex-col min-h-[220px]">
+				<div className='min-h-[60px]'>
+					<h1 key={uuid()} className="text-white text-[28px] mt-[40px]">
+						{item.title}
+					</h1>
+					<h2 key={uuid()} className="text-primary text-[25px] mt-2">
+						{item.info}
+					</h2>
+				</div>
+				<h2 key={uuid()} className="text-orange-500 text-[22px] mt-6">
+					{item.techs}
+				</h2>
+			</div>
 		</button>
 	)
 }
