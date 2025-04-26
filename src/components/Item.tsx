@@ -26,7 +26,7 @@ const Item = ({
 					className="absolute z-1 w-full select-none pointer-events-none rounded-[20px]"
 				/>
 			</div>
-			<div className="flex flex-col min-h-[220px]">
+			<div className="flex flex-col min-h-[220px] w-full">
 				<div className='min-h-[60px]'>
 					<h1 key={uuid()} className="text-white text-[28px] mt-[40px]">
 						{item.title}
@@ -35,7 +35,7 @@ const Item = ({
 						{item.info}
 					</h2>
 				</div>
-				<h2 key={uuid()} className="text-orange-500 text-[22px] mt-6">
+				<h2 key={uuid()} className="text-orange-500 text-[22px] mt-6 line-clamp-2 p-[20px]">
 					{item.techs}
 				</h2>
 			</div>
