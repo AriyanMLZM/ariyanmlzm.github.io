@@ -1,7 +1,7 @@
 {
 	"github": {
 		"enabled": true,
-		"silent": true,
+		"silent": false,
 		"branches": {
 			"main": {
 				"deployment": true
