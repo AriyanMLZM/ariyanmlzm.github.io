@@ -16,6 +16,7 @@
     "@react-three/fiber": "^8.16.6",
     "@types/three": "^0.168.0",
     "@types/uuid": "^10.0.0",
+    "@vercel/analytics": "^1.5.0",
     "gh-pages": "^6.1.1",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",
