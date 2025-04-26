@@ -7,6 +7,7 @@ import brn from './brn.jpg'
 import bt from './bt.jpg'
 import bs from './bs.jpg'
 import be from './be.jpg'
+import bn from './bn.jpg'
 import skills from './skills.jpg'
 import proj1 from './proj1.jpg'
 import proj2 from './proj2.jpg'
@@ -24,6 +25,7 @@ import proj13 from './proj13.jpg'
 import proj14 from './proj14.jpg'
 import proj15 from './proj15.jpg'
 import proj16 from './proj16.jpg'
+import proj17 from './proj17.jpg'
 import afterdark from './afterdark.jpg'
 import endless from './endless.jpg'
 import intro from './intro.jpg'
@@ -47,6 +49,7 @@ export {
 	bt,
 	bs,
 	be,
+	bn,
 	skills,
 	proj1,
 	proj2,
@@ -64,4 +67,5 @@ export {
 	proj14,
 	proj15,
 	proj16,
+	proj17,
 }
