@@ -18,6 +18,7 @@ import { Dog, Model1, Model2, Rain } from '../models'
 import { Gifs } from '../containers'
 import { Aboutme, Projects, Start, Loader, Musics } from '.'
 import { useMusics, useSounds } from '../hooks'
+import { changeScene, ghosting, changeMusic } from '../utils'
 
 const Home = () => {
 	const [start, setStart] = useState(false)
@@ -80,43 +81,28 @@ const Home = () => {
 					setIsAnimating(false)
 				},
 			},
-			0
+			0,
 		)
 	}
 
-	const changeMusic = (
+	const toggleChangeMusic = (
 		action: number,
 		ind: number = -1,
-		timeout: boolean = false
-	) => {
-		if (clickS.current.paused) clickS.current.play()
-		if (scene === 3 || timeout) {
-			switch (action) {
-				case -1:
-					musics[musicInd].current.pause()
-					if (musicInd === 0) setMusicInd(musics.length - 1)
-					else setMusicInd(musicInd - 1)
-					break
-				case 0:
-					if (playing) musics[musicInd].current.pause()
-					else {
-						musics[musicInd].current.play()
-					}
-					setPlaying(!playing)
-					break
-				case 1:
-					musics[musicInd].current.pause()
-					if (musicInd === musics.length - 1) setMusicInd(0)
-					else setMusicInd(musicInd + 1)
-					break
-				case 2:
-					musics[musicInd].current.pause()
-					setMusicInd(ind)
-			}
-		} else if (scene === 0) {
-			changeScene(3)
-		}
-	}
+		timeout: boolean = false,
+	) =>
+		changeMusic(
+			action,
+			ind,
+			timeout,
+			clickS,
+			scene,
+			playing,
+			musics,
+			musicInd,
+			setMusicInd,
+			setPlaying,
+			toggleChangeScene,
+		)
 
 	useEffect(() => {
 		if (start) {
@@ -156,221 +142,40 @@ const Home = () => {
 		if (holoS.current.paused) holoS.current.play()
 	}
 
-	const ghosting = () => {
-		setIsAnimating(true)
-		if (powerS.current.paused) powerS.current.play()
-		if (playing) {
-			musics[musicInd].current.pause()
-			setPlaying(false)
-		}
-		gsap.to(pl.current, {
-			intensity: 0,
-			duration: 1,
-			ease: 'power2.in',
-			onComplete: () => setIsAnimating(false),
-		})
-		gsap.to(al.current, {
-			intensity: 0.25,
-			duration: 1,
-			ease: 'power2.in',
-			onComplete: () => setIsAnimating(false),
-		})
-		rainS.current.currentTime = 0
-		rainS.current.play()
-		setGhosted(true)
-	}
+	const toggleChangeScene = (snum: number, gif: boolean = false) =>
+		changeScene(
+			snum,
+			gif,
+			timeline,
+			cameraRef,
+			controlRef,
+			setIsAnimating,
+			setCpx,
+			setCpy,
+			setCpz,
+			cameraS,
+			clickS,
+			setScene,
+			isMobile,
+			isAnimating,
+			scene,
+		)
 
-	const unghosting = () => {
-		setIsAnimating(true)
-		if (pbS.current.paused) pbS.current.play()
-		gsap.to(pl.current, {
-			intensity: 40,
-			duration: 4,
-		})
-		gsap.to(al.current, {
-			intensity: 1,
-			duration: 4,
-			onComplete: () => setIsAnimating(false),
-		})
-		rainS.current.pause()
-		setGhosted(false)
-	}
-
-	const changeScene = (snum: number, gif: boolean = false) => {
-		if (scene === 0 && !isAnimating) {
-			if (gif) {
-				switch (snum) {
-					case 1:
-						if (cameraRef.current!.position.z < 0) return
-						break
-					case 2:
-						if (cameraRef.current!.position.z > 0) return
-						break
-					case 3:
-						if (cameraRef.current!.position.x > 0) return
-						break
-				}
-			}
-			if (clickS.current.paused) clickS.current.play()
-			setIsAnimating(true)
-			setCpx(cameraRef.current!.position.x)
-			setCpy(cameraRef.current!.position.y)
-			setCpz(cameraRef.current!.position.z)
-			if (cameraS.current.paused) cameraS.current.play()
-			controlRef.current!.enableRotate = false
-			controlRef.current!.enableZoom = false
-			switch (snum) {
-				case 1:
-					timeline
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -0.4,
-								y: 17.98,
-								z: 60,
-								duration: 1,
-							},
-							0
-						)
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -0.4,
-								y: 17.98,
-								z: 25,
-								delay: 0.5,
-								duration: 1,
-								onComplete: () => {
-									controlRef.current!.maxDistance = 50
-									controlRef.current!.minDistance = 15
-									controlRef.current!.enableZoom = true
-									setScene(snum)
-									setIsAnimating(false)
-									cameraS.current.pause()
-									cameraS.current.currentTime = 0
-								},
-							},
-							1
-						)
-						.to(
-							controlRef.current!.target,
-							{
-								x: -0.4,
-								y: 17.98,
-								z: 0,
-								duration: 2,
-							},
-							0
-						)
-					break
-				case 2:
-					timeline
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -0.7,
-								y: 5.05,
-								z: -60,
-								duration: 1,
-							},
-							0
-						)
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -0.7,
-								y: 5.05,
-								z: -25,
-								duration: 1,
-								delay: 0.5,
-								onComplete: () => {
-									controlRef.current!.maxDistance = 40
-									controlRef.current!.minDistance = 15
-									controlRef.current!.enableZoom = true
-									setScene(snum)
-									setIsAnimating(false)
-									cameraS.current.pause()
-									cameraS.current.currentTime = 0
-								},
-							},
-							1
-						)
-						.to(
-							controlRef.current!.target,
-							{
-								x: -0.7,
-								y: 5.05,
-								z: 0,
-								duration: 2,
-							},
-							0
-						)
-					break
-				case 3:
-					timeline
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -60,
-								y: 4.71,
-								z: -0.44,
-								duration: 1,
-							},
-							0
-						)
-						.to(
-							cameraRef.current!.position,
-							{
-								x: -25,
-								y: 4.71,
-								z: -0.44,
-								duration: 1,
-								delay: 0.5,
-								onComplete: () => {
-									controlRef.current!.maxDistance = 40
-									controlRef.current!.minDistance = 15
-									controlRef.current!.enableZoom = true
-									setScene(snum)
-									setIsAnimating(false)
-									cameraS.current.pause()
-									cameraS.current.currentTime = 0
-								},
-							},
-							1
-						)
-						.to(
-							controlRef.current!.target,
-							{
-								x: 0,
-								y: 4.71,
-								z: -0.44,
-								duration: 2,
-							},
-							0
-						)
-					break
-				case 4:
-					timeline.to(
-						cameraRef.current!.position,
-						{
-							x: isMobile ? 94.82 : 60,
-							y: isMobile ? 68.89 : 110,
-							z: isMobile ? 41.21 : 0,
-							duration: 1,
-							onComplete: () => {
-								controlRef.current!.enableZoom = true
-								controlRef.current!.enableRotate = true
-								setIsAnimating(false)
-								cameraS.current.pause()
-								cameraS.current.currentTime = 0
-							},
-						},
-						0
-					)
-					break
-			}
-		}
-	}
+	const toggleGhosting = (stat: boolean) =>
+		ghosting(
+			stat,
+			powerS,
+			rainS,
+			setIsAnimating,
+			setPlaying,
+			setGhosted,
+			musics,
+			musicInd,
+			playing,
+			pl,
+			al,
+			pbS,
+		)
 
 	const handleClose = () => {
 		setIsAnimating(true)
@@ -402,9 +207,10 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		if (pic1 === 3 && pic2 === 3 && pic3 === 3 && pic4 === 3) ghosting()
+		if (pic1 === 3 && pic2 === 3 && pic3 === 3 && pic4 === 3)
+			toggleGhosting(true)
 		else {
-			if (ghosted) unghosting()
+			if (ghosted) toggleGhosting(false)
 		}
 	}, [pic1, pic2, pic3, pic4])
 
@@ -451,27 +257,27 @@ const Home = () => {
 				<ambientLight intensity={1} ref={al} />
 				<Model1
 					funcs={{
-						changeMusic,
+						changeMusic: toggleChangeMusic,
 						riff,
 						changePic,
 						holoClick,
-						changeScene,
+						changeScene: toggleChangeScene,
 					}}
 					ghosted={ghosted}
 				/>
 				<Model2
 					funcs={{
-						changeMusic,
+						changeMusic: toggleChangeMusic,
 						riff,
 						changePic,
 						holoClick,
-						changeScene,
+						changeScene: toggleChangeScene,
 					}}
 					ind={{ pic1, pic2, pic3, pic4 }}
 					ghosted={ghosted}
 				/>
 				{start && !ghosted && !isMobile && (
-					<Gifs changeScene={changeScene} isMobile={isMobile} />
+					<Gifs changeScene={toggleChangeScene} isMobile={isMobile} />
 				)}
 				{scene === 1 && <Aboutme handleClose={handleClose} />}
 				{scene === 2 && <Projects handleClose={handleClose} />}
@@ -480,7 +286,7 @@ const Home = () => {
 						handleClose={handleClose}
 						play={playing}
 						ind={musicInd}
-						changeMusic={changeMusic}
+						changeMusic={toggleChangeMusic}
 					/>
 				)}
 				<OrbitControls
