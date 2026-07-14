@@ -56,9 +56,7 @@ export const handleClose = (
 	cameraS: MutableRefObject<HTMLAudioElement>,
 	controlRef: RefObject<orbitControlType>,
 	cameraRef: RefObject<perspectiveCameraType>,
-	cpx: number,
-	cpy: number,
-	cpz: number,
+	cp: { x: number; y: number; z: number },
 ) => {
 	setIsAnimating(true)
 	setScene(0)
@@ -74,9 +72,9 @@ export const handleClose = (
 		duration: 2,
 	})
 	gsap.to(cameraRef.current!.position, {
-		x: cpx,
-		y: cpy,
-		z: cpz,
+		x: cp.x,
+		y: cp.y,
+		z: cp.z,
 		duration: 2,
 		onComplete: () => {
 			setIsAnimating(false)

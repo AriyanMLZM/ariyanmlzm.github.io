@@ -299,11 +299,11 @@ const Model2 = ({
 					geometry={nodes.vending_screen.geometry}
 					material={ghosted ? materials['screen21'] : materials['screenp.005']}
 				/>
-				<mesh
+				{/* <mesh
 					name="titles"
 					geometry={nodes.titles.geometry}
 					material={materials['light_text.005']}
-				/>
+				/> */}
 				<mesh
 					name="drag_text"
 					geometry={nodes.drag_text.geometry}

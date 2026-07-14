@@ -25,6 +25,7 @@ import {
 	handleStart,
 	handleClose,
 } from '../utils'
+import { Title } from '../components'
 
 const Home = () => {
 	const [start, setStart] = useState(false)
@@ -36,9 +37,7 @@ const Home = () => {
 	const [ghosted, setGhosted] = useState(false)
 	const [isAnimating, setIsAnimating] = useState(false)
 	const [scene, setScene] = useState(0)
-	const [cpx, setCpx] = useState(0)
-	const [cpy, setCpy] = useState(0)
-	const [cpz, setCpz] = useState(0)
+	const [cp, setCp] = useState({ x: 0, y: 0, z: 0 })
 	const [isMobile, setIsMobile] = useState(false)
 	const [show, setShow] = useState(false)
 	const [dpr, setDpr] = useState(1)
@@ -120,9 +119,7 @@ const Home = () => {
 			cameraRef,
 			controlRef,
 			setIsAnimating,
-			setCpx,
-			setCpy,
-			setCpz,
+			setCp,
 			cameraS,
 			clickS,
 			setScene,
@@ -155,9 +152,7 @@ const Home = () => {
 			cameraS,
 			controlRef,
 			cameraRef,
-			cpx,
-			cpy,
-			cpz,
+			cp,
 		)
 
 	useEffect(() => {
@@ -227,6 +222,7 @@ const Home = () => {
 					pics={pics}
 					ghosted={ghosted}
 				/>
+				<Title />
 				{start && !ghosted && !isMobile && (
 					<Gifs changeScene={toggleChangeScene} isMobile={isMobile} />
 				)}

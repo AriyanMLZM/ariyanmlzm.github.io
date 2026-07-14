@@ -9,9 +9,7 @@ const changeScene = (
 	cameraRef: RefObject<perspectiveCameraType>,
 	controlRef: RefObject<orbitControlType>,
 	setIsAnimating: (value: SetStateAction<boolean>) => void,
-	setCpx: (value: SetStateAction<number>) => void,
-	setCpy: (value: SetStateAction<number>) => void,
-	setCpz: (value: SetStateAction<number>) => void,
+	setCp: (value: SetStateAction<{ x: number; y: number; z: number }>) => void,
 	cameraS: MutableRefObject<HTMLAudioElement>,
 	clickS: MutableRefObject<HTMLAudioElement>,
 	setScene: (value: SetStateAction<number>) => void,
@@ -35,9 +33,11 @@ const changeScene = (
 		}
 		if (clickS.current.paused) clickS.current.play()
 		setIsAnimating(true)
-		setCpx(cameraRef.current!.position.x)
-		setCpy(cameraRef.current!.position.y)
-		setCpz(cameraRef.current!.position.z)
+		setCp({
+			x: cameraRef.current!.position.x,
+			y: cameraRef.current!.position.y,
+			z: cameraRef.current!.position.z,
+		})
 		if (cameraS.current.paused) cameraS.current.play()
 		controlRef.current!.enableRotate = false
 		controlRef.current!.enableZoom = false
