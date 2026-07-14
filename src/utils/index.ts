@@ -1,5 +1,5 @@
 import ghosting from './ghosting'
 import changeScene from './changeScene'
-import { changeMusic } from './changeMedia'
+import changeMusic from './changeMusic'
 
 export { ghosting, changeScene, changeMusic }

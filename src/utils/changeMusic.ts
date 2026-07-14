@@ -1,6 +1,6 @@
 import { MutableRefObject, SetStateAction } from 'react'
 
-export const changeMusic = (
+const changeMusic = (
 	action: number,
 	ind: number = -1,
 	timeout: boolean = false,
@@ -41,3 +41,5 @@ export const changeMusic = (
 		toggleChangeScene(3)
 	}
 }
+
+export default changeMusic

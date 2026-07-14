@@ -7,11 +7,11 @@ import { screens } from '../constants'
 
 const Model2 = ({
 	funcs,
-	ind,
+	pics,
 	ghosted,
 }: {
 	funcs: any
-	ind: { pic1: number; pic2: number; pic3: number; pic4: number }
+	pics: [number, number, number, number]
 	ghosted: boolean
 }) => {
 	const { nodes, materials, animations } = useGLTF(modelGltf) as any
@@ -228,27 +228,27 @@ const Model2 = ({
 				</group>
 				<mesh
 					name="pic_sign_screen"
-					onClick={() => funcs.changePic(1)}
+					onClick={() => funcs.changePic(0)}
 					geometry={nodes.pic_sign_screen.geometry}
-					material={materials[screens.s1[ind.pic1]]}
+					material={materials[screens.s1[pics[0]]]}
 				/>
 				<mesh
 					name="pic_sign_screen1"
-					onClick={() => funcs.changePic(2)}
+					onClick={() => funcs.changePic(1)}
 					geometry={nodes.pic_sign_screen1.geometry}
-					material={materials[screens.s2[ind.pic2]]}
+					material={materials[screens.s2[pics[1]]]}
 				/>
 				<mesh
 					name="pic_sign_screen2"
-					onClick={() => funcs.changePic(3)}
+					onClick={() => funcs.changePic(2)}
 					geometry={nodes.pic_sign_screen2.geometry}
-					material={materials[screens.s3[ind.pic3]]}
+					material={materials[screens.s3[pics[2]]]}
 				/>
 				<mesh
 					name="pic_sign_screen3"
-					onClick={() => funcs.changePic(4)}
+					onClick={() => funcs.changePic(3)}
 					geometry={nodes.pic_sign_screen3.geometry}
-					material={materials[screens.s4[ind.pic4]]}
+					material={materials[screens.s4[pics[3]]]}
 				/>
 				<mesh
 					name="python"

@@ -24,10 +24,9 @@ const Home = () => {
 	const [start, setStart] = useState(false)
 	const [musicInd, setMusicInd] = useState(0)
 	const [playing, setPlaying] = useState(true)
-	const [pic1, setPic1] = useState(0)
-	const [pic2, setPic2] = useState(0)
-	const [pic3, setPic3] = useState(0)
-	const [pic4, setPic4] = useState(0)
+	const [pics, setPics] = useState<[number, number, number, number]>([
+		0, 0, 0, 0,
+	])
 	const [ghosted, setGhosted] = useState(false)
 	const [isAnimating, setIsAnimating] = useState(false)
 	const [scene, setScene] = useState(0)
@@ -113,26 +112,12 @@ const Home = () => {
 	}, [musicInd])
 
 	const changePic = (pnum: number) => {
-		if (!isAnimating) {
-			switch (pnum) {
-				case 1:
-					if (pic1 === 3) setPic1(0)
-					else setPic1(pic1 + 1)
-					break
-				case 2:
-					if (pic2 === 3) setPic2(0)
-					else setPic2(pic2 + 1)
-					break
-				case 3:
-					if (pic3 === 3) setPic3(0)
-					else setPic3(pic3 + 1)
-					break
-				case 4:
-					if (pic4 === 3) setPic4(0)
-					else setPic4(pic4 + 1)
-					break
-			}
-		}
+		if (!isAnimating)
+			setPics((prev) => {
+				const updated = [...prev] as [number, number, number, number]
+				updated[pnum] = updated[pnum] === 3 ? 0 : updated[pnum] + 1
+				return updated
+			})
 	}
 
 	const riff = () => {
@@ -207,12 +192,9 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		if (pic1 === 3 && pic2 === 3 && pic3 === 3 && pic4 === 3)
-			toggleGhosting(true)
-		else {
-			if (ghosted) toggleGhosting(false)
-		}
-	}, [pic1, pic2, pic3, pic4])
+		if (pics.every((val) => val === 3)) toggleGhosting(true)
+		else if (ghosted) toggleGhosting(false)
+	}, [pics])
 
 	useEffect(() => {
 		window.innerWidth < 768 ? setIsMobile(true) : setIsMobile(false)
@@ -273,7 +255,7 @@ const Home = () => {
 						holoClick,
 						changeScene: toggleChangeScene,
 					}}
-					ind={{ pic1, pic2, pic3, pic4 }}
+					pics={pics}
 					ghosted={ghosted}
 				/>
 				{start && !ghosted && !isMobile && (
