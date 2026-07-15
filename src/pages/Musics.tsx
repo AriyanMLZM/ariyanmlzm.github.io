@@ -1,9 +1,10 @@
 import { Html } from '@react-three/drei'
 import { v4 as uuid } from 'uuid'
 
-import { music, close } from '../assets/icons'
 import { musics } from '../constants'
 import { Music } from '../containers'
+import { CloseIcon } from '../components'
+import { Icon } from '@iconify/react'
 
 const Musics = ({
 	ind,
@@ -14,7 +15,7 @@ const Musics = ({
 	ind: number
 	play: boolean
 	handleClose: () => void
-	changeMusic: (action: number, ind: number, timeout: boolean) => void
+	changeMusic: (action: number, ind?: number, timeout?: boolean) => void
 }) => {
 	return (
 		<Html
@@ -26,12 +27,7 @@ const Musics = ({
 		>
 			<div className="bg-[#111] flex w-[458px] h-[575px] flex-col select-none">
 				<section className="flex justify-around items-center">
-					<img
-						src={music}
-						alt="music"
-						width={'40px'}
-						className="select-none pointer-events-none"
-					/>
+					<Icon icon="basil:music-solid" className="text-white text-[40px]" />
 					<h1 className="text-purple-500 font-bold text-[30px] font-mono w-[200px] text-center">
 						{play ? 'Playing' : 'Paused'}
 					</h1>
@@ -40,7 +36,7 @@ const Musics = ({
 						type="button"
 						className="w-[80px] h-[80px] flex justify-center items-center"
 					>
-						<img width={'30px'} src={close} alt="" />
+						<CloseIcon className="hover:text-purple-500" />
 					</button>
 				</section>
 				<section className="flex flex-col items-center">

@@ -8,5 +8,18 @@ import Exp from './Exp'
 import List from './List'
 import Project from './Project'
 import Music from './Music'
+import Nav from './Nav'
 
-export { Gifs, Header, Body, About, Footer, Skills, Exp, List, Project, Music }
+export {
+	Gifs,
+	Header,
+	Body,
+	About,
+	Footer,
+	Skills,
+	Exp,
+	List,
+	Project,
+	Music,
+	Nav,
+}

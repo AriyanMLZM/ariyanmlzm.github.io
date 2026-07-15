@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Html } from '@react-three/drei'
 
-import { Button } from '../components'
+import { Button, CloseIcon } from '../components'
 import { Header, Body, Footer } from '../containers'
-import { close } from '../assets/icons'
 import { about } from '../constants'
 import { useSounds } from '../hooks'
 
@@ -36,7 +35,7 @@ const About = ({ handleClose }: { handleClose: () => void }) => {
 						Exp
 					</Button>
 					<Button func={handleClose}>
-						<img className="md:w-[40px] w-[35px]" src={close} alt="close" />
+						<CloseIcon className="text-[65px]" />
 					</Button>
 				</nav>
 				<header className="w-[60%] md:w-full h-[15%] flex flex-row">
