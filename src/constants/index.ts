@@ -36,10 +36,7 @@ import {
 
 export const about = {
 	header: "Hi, I'm Ariyan.",
-	info: `I'm a Computer Engineer and a Javascript Fullstack Developer. I have over 4 years of experience developing web. I enjoy combining new ideas
-    with programming and code my way to it and solve the problems. I
-    always try to create and use new and unique designs. You can see some
-    of my works in Projects section.`,
+	info: `I'm a Software Engineer and Javascript Fullstack Developer. I have over ${new Date().getFullYear() - 2021} years of experience developing web. I enjoy combining new ideas with programming and code my way to it and solve the problems. I always try to create new and unique designs. You can see some of my works in the Projects section.`,
 	github: 'https://github.com/AriyanMLZM',
 	gmail: 'ryanmolazem@gmail.com',
 	phone: '+989175894212',
@@ -47,8 +44,16 @@ export const about = {
 	wat: 'https://wa.me/+989175894212',
 	exp: [
 		{
+			title: 'Master of Software Engineering',
+			text: 'Shiraz University',
+		},
+		{
 			title: 'Bachelor of Computer Engineering',
 			text: 'Fasa University - Top Student',
+		},
+		{
+			title: 'Freelance',
+			text: 'Shiraz - Web Developer',
 		},
 		{
 			title: 'isDynamic Company',
@@ -60,10 +65,6 @@ export const about = {
 		},
 		{
 			title: 'Rayan Tejarat Pars Company',
-			text: 'Shiraz - Web Developer',
-		},
-		{
-			title: 'Freelance',
 			text: 'Shiraz - Web Developer',
 		},
 		{
