@@ -48,6 +48,7 @@ const Home = () => {
 		rainS,
 		al,
 		toggleAnimating,
+		isAnimating,
 	)
 
 	const {
@@ -89,7 +90,16 @@ const Home = () => {
 
 	return (
 		<>
-			{start && <Nav toggleRain={toggleRain} />}
+			{start && (
+				<Nav
+					toggleRain={toggleRain}
+					changeScene={changeScene}
+					togglePlaying={togglePlaying}
+					scene={scene}
+					isPlaying={isPlaying}
+					isRain={isRain}
+				/>
+			)}
 			<Canvas
 				className="w-full h-full bg-transparent z-10"
 				dpr={dpr}

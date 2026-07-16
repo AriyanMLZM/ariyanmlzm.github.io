@@ -7,32 +7,39 @@ const useRain = (
 	rainS: MutableRefObject<HTMLAudioElement>,
 	al: RefObject<ambientLightType>,
 	toggleAnimating: (stat?: boolean) => void,
+	isAnimating: boolean,
 ) => {
 	const [isRain, setIsRain] = useState(false)
 
 	const rain = (withEffect?: boolean) => {
-		togglePlaying(false)
-		rainS.current.currentTime = 0
-		rainS.current.play()
-		setIsRain(true)
-		if (withEffect) {
-			gsap.to(al.current, {
-				intensity: 0.5,
-				duration: 1,
-				ease: 'power2.in',
-				onComplete: () => toggleAnimating(false),
-			})
+		if (!withEffect || !isAnimating) {
+			togglePlaying(false)
+			rainS.current.currentTime = 0
+			rainS.current.play()
+			setIsRain(true)
+			if (withEffect) {
+				toggleAnimating(true)
+				gsap.to(al.current, {
+					intensity: 0.5,
+					duration: 1,
+					ease: 'power2.in',
+					onComplete: () => toggleAnimating(false),
+				})
+			}
 		}
 	}
 	const unRain = (withEffect?: boolean) => {
-		rainS.current.pause()
-		setIsRain(false)
-		if (withEffect) {
-			gsap.to(al.current, {
-				intensity: 1,
-				duration: 4,
-				onComplete: () => toggleAnimating(false),
-			})
+		if (!withEffect || !isAnimating) {
+			rainS.current.pause()
+			setIsRain(false)
+			if (withEffect) {
+				toggleAnimating(true)
+				gsap.to(al.current, {
+					intensity: 1,
+					duration: 2,
+					onComplete: () => toggleAnimating(false),
+				})
+			}
 		}
 	}
 

@@ -81,7 +81,7 @@ const useScene = (
 	}
 
 	const changeScene = (snum: number, gif: boolean = false) => {
-		if (scene === 0 && !isAnimating) {
+		if (scene !== snum && !isAnimating) {
 			if (gif) {
 				switch (snum) {
 					case 1:
@@ -96,11 +96,12 @@ const useScene = (
 			}
 			if (clickS.current.paused) clickS.current.play()
 			toggleIsAnimating(true)
-			setCp({
-				x: cameraRef.current!.position.x,
-				y: cameraRef.current!.position.y,
-				z: cameraRef.current!.position.z,
-			})
+			if (scene === 0)
+				setCp({
+					x: cameraRef.current!.position.x,
+					y: cameraRef.current!.position.y,
+					z: cameraRef.current!.position.z,
+				})
 			if (cameraS.current.paused) cameraS.current.play()
 			controlRef.current!.enableRotate = false
 			controlRef.current!.enableZoom = false
