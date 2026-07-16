@@ -10,11 +10,8 @@ const ghosting = (
 	powerS: MutableRefObject<HTMLAudioElement>,
 	rainS: MutableRefObject<HTMLAudioElement>,
 	setIsAnimating: (value: SetStateAction<boolean>) => void,
-	setPlaying: (value: SetStateAction<boolean>) => void,
 	setGhosted: (value: SetStateAction<boolean>) => void,
-	musics: MutableRefObject<HTMLAudioElement>[],
-	musicInd: number,
-	playing: boolean,
+	togglePlaying: (stat?: boolean) => void,
 	pl: RefObject<pointLightType>,
 	al: RefObject<ambientLightType>,
 	pbS: MutableRefObject<HTMLAudioElement>,
@@ -22,10 +19,7 @@ const ghosting = (
 	setIsAnimating(true)
 	if (stat) {
 		if (powerS.current.paused) powerS.current.play()
-		if (playing) {
-			musics[musicInd].current.pause()
-			setPlaying(false)
-		}
+		togglePlaying(false)
 		gsap.to(pl.current, {
 			intensity: 0,
 			duration: 1,

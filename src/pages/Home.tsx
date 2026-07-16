@@ -7,9 +7,7 @@ import {
 } from '@react-three/drei'
 import { gsap } from 'gsap'
 import round from 'lodash/round'
-import { OrbitControls as orbitControlType } from 'three-stdlib'
 import {
-	PerspectiveCamera as perspectiveCameraType,
 	PointLight as pointLightType,
 	AmbientLight as ambientLightType,
 } from 'three'
@@ -17,116 +15,48 @@ import {
 import { Dog, Model1, Model2, Rain } from '../models'
 import { Gifs, Nav } from '../containers'
 import { Aboutme, Projects, Start, Loader, Musics } from '.'
-import { useMusics, useSounds } from '../hooks'
-import {
-	changeScene,
-	ghosting,
-	changeMusic,
-	handleStart,
-	handleClose,
-} from '../utils'
+import { useMusics, usePics, useScene, useSounds } from '../hooks'
+import { ghosting } from '../utils'
 import { Title } from '../components'
 
 const Home = () => {
-	const [start, setStart] = useState(false)
-	const [musicInd, setMusicInd] = useState(0)
-	const [playing, setPlaying] = useState(true)
-	const [pics, setPics] = useState<[number, number, number, number]>([
-		0, 0, 0, 0,
-	])
 	const [ghosted, setGhosted] = useState(false)
 	const [isAnimating, setIsAnimating] = useState(false)
-	const [scene, setScene] = useState(0)
-	const [cp, setCp] = useState({ x: 0, y: 0, z: 0 })
 	const [isMobile, setIsMobile] = useState(false)
-	const [show, setShow] = useState(false)
 	const [dpr, setDpr] = useState(1)
 	const [lowfps, setLowfps] = useState(false)
 
-	const controlRef = useRef<orbitControlType>(null)
-	const cameraRef = useRef<perspectiveCameraType>(null)
 	const pl = useRef<pointLightType>(null)
 	const al = useRef<ambientLightType>(null)
 
-	const musics = useMusics()
-	const { clickS, guitarS, dingS, rainS, powerS, pbS, holoS, cameraS } =
-		useSounds()
-
 	const timeline = gsap.timeline()
+	const toggleIsAnimating = (stat?: boolean) =>
+		setIsAnimating((prev) => (stat !== undefined ? stat : !prev))
 
-	const toggleHandleStart = () =>
-		handleStart(
-			setShow,
-			setIsAnimating,
-			setStart,
-			controlRef,
-			cameraRef,
-			cameraS,
-			dingS,
-			timeline,
-			isMobile,
-			musics,
-		)
+	const { clickS, dingS, rainS, powerS, pbS, cameraS, riff, holoClick } =
+		useSounds()
+	const { changeMusic, togglePlaying, isPlaying, musicInd } = useMusics(clickS)
+	const { pics, changePic } = usePics(isAnimating)
 
-	const toggleChangeMusic = (
-		action: number,
-		ind: number = -1,
-		timeout: boolean = false,
-	) =>
-		changeMusic(
-			action,
-			ind,
-			timeout,
-			clickS,
-			scene,
-			playing,
-			musics,
-			musicInd,
-			setMusicInd,
-			setPlaying,
-			toggleChangeScene,
-		)
-
-	useEffect(() => {
-		if (start) {
-			musics[musicInd].current.currentTime = 0
-			musics[musicInd].current.play()
-			if (!playing) setPlaying(true)
-		}
-	}, [musicInd])
-
-	const changePic = (pnum: number) => {
-		if (!isAnimating)
-			setPics((prev) => {
-				const updated = [...prev] as [number, number, number, number]
-				updated[pnum] = updated[pnum] === 3 ? 0 : updated[pnum] + 1
-				return updated
-			})
-	}
-
-	const riff = () => {
-		if (guitarS.current.paused) guitarS.current.play()
-	}
-	const holoClick = () => {
-		if (holoS.current.paused) holoS.current.play()
-	}
-
-	const toggleChangeScene = (snum: number, gif: boolean = false) =>
-		changeScene(
-			snum,
-			gif,
-			timeline,
-			cameraRef,
-			controlRef,
-			setIsAnimating,
-			setCp,
-			cameraS,
-			clickS,
-			setScene,
-			isMobile,
-			isAnimating,
-			scene,
-		)
+	const {
+		changeScene,
+		scene,
+		controlRef,
+		cameraRef,
+		show,
+		start,
+		startScene,
+		closeScene,
+	} = useScene(
+		timeline,
+		toggleIsAnimating,
+		cameraS,
+		clickS,
+		dingS,
+		isMobile,
+		isAnimating,
+		togglePlaying,
+	)
 
 	const toggleGhosting = (stat: boolean) =>
 		ghosting(
@@ -134,25 +64,11 @@ const Home = () => {
 			powerS,
 			rainS,
 			setIsAnimating,
-			setPlaying,
 			setGhosted,
-			musics,
-			musicInd,
-			playing,
+			togglePlaying,
 			pl,
 			al,
 			pbS,
-		)
-
-	const toggleHandleClose = () =>
-		handleClose(
-			setIsAnimating,
-			setScene,
-			clickS,
-			cameraS,
-			controlRef,
-			cameraRef,
-			cp,
 		)
 
 	useEffect(() => {
@@ -186,7 +102,7 @@ const Home = () => {
 					}}
 				/>
 				<Suspense fallback={<Loader />}>
-					{!show && <Start handleStart={toggleHandleStart} />}
+					{!show && <Start handleStart={startScene} />}
 					<PerspectiveCamera
 						ref={cameraRef}
 						position={[0, 40, 0]}
@@ -205,37 +121,37 @@ const Home = () => {
 					<ambientLight intensity={1} ref={al} />
 					<Model1
 						funcs={{
-							changeMusic: toggleChangeMusic,
 							riff,
 							changePic,
 							holoClick,
-							changeScene: toggleChangeScene,
+							changeScene,
 						}}
 						ghosted={ghosted}
 					/>
 					<Model2
 						funcs={{
-							changeMusic: toggleChangeMusic,
+							changeMusic,
 							riff,
 							changePic,
 							holoClick,
-							changeScene: toggleChangeScene,
+							changeScene,
 						}}
 						pics={pics}
 						ghosted={ghosted}
+						scene={scene}
 					/>
 					<Title />
 					{start && !ghosted && !isMobile && (
-						<Gifs changeScene={toggleChangeScene} isMobile={isMobile} />
+						<Gifs changeScene={changeScene} isMobile={isMobile} />
 					)}
-					{scene === 1 && <Aboutme handleClose={toggleHandleClose} />}
-					{scene === 2 && <Projects handleClose={toggleHandleClose} />}
+					{scene === 1 && <Aboutme handleClose={closeScene} />}
+					{scene === 2 && <Projects handleClose={closeScene} />}
 					{scene === 3 && (
 						<Musics
-							handleClose={toggleHandleClose}
-							play={playing}
+							handleClose={closeScene}
+							play={isPlaying}
 							ind={musicInd}
-							changeMusic={toggleChangeMusic}
+							changeMusic={changeMusic}
 						/>
 					)}
 					<OrbitControls

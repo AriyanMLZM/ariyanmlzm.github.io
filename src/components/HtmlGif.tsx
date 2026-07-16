@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei'
 
-import { Ixyz } from '../types'
+import { Vxyz } from '../types'
 
 const HtmlGif = ({
 	rot,
@@ -12,8 +12,8 @@ const HtmlGif = ({
 	changeScene,
 	snum = -1,
 }: {
-	rot: Ixyz
-	pos: Ixyz
+	rot: Vxyz
+	pos: Vxyz
 	width: string
 	height: string
 	scale?: number

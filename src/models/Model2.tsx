@@ -9,10 +9,12 @@ const Model2 = ({
 	funcs,
 	pics,
 	ghosted,
+	scene,
 }: {
 	funcs: any
 	pics: [number, number, number, number]
 	ghosted: boolean
+	scene: number
 }) => {
 	const { nodes, materials, animations } = useGLTF(modelGltf) as any
 	const group = useRef<Group>(null)
@@ -156,7 +158,10 @@ const Model2 = ({
 				/>
 				<mesh
 					name="left_btn"
-					onClick={() => funcs.changeMusic(-1)}
+					onClick={() => {
+						if (scene === 3) funcs.changeMusic(-1)
+						else funcs.changeScene(3)
+					}}
 					geometry={nodes.left_btn.geometry}
 					material={materials.light_purple}
 				/>
@@ -262,7 +267,10 @@ const Model2 = ({
 				/>
 				<mesh
 					name="right_btn"
-					onClick={() => funcs.changeMusic(1)}
+					onClick={() => {
+						if (scene === 3) funcs.changeMusic(1)
+						else funcs.changeScene(3)
+					}}
 					geometry={nodes.right_btn.geometry}
 					material={materials.light_purple}
 				/>
@@ -283,7 +291,10 @@ const Model2 = ({
 				/>
 				<mesh
 					name="stop_btn"
-					onClick={() => funcs.changeMusic(0)}
+					onClick={() => {
+						if (scene === 3) funcs.changeMusic(0)
+						else funcs.changeScene(3)
+					}}
 					geometry={nodes.stop_btn.geometry}
 					material={materials.light_purple}
 				/>

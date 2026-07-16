@@ -1,0 +1,53 @@
+{
+	"scenes": [
+		{
+			"p1": { "x": -0.4, "y": 17.98, "z": 60, "duration": 1 },
+			"p2": {
+				"x": -0.4,
+				"y": 17.98,
+				"z": 25,
+				"duration": 1,
+				"delay": 0.5
+			},
+			"control": {
+				"maxDis": 50,
+				"minDis": 15,
+				"target": { "x": -0.4, "y": 17.98, "z": 0, "duration": 2 }
+			}
+		},
+		{
+			"p1": { "x": -0.7, "y": 5.05, "z": -60, "duration": 1 },
+			"p2": {
+				"x": -0.7,
+				"y": 5.05,
+				"z": -25,
+				"duration": 1,
+				"delay": 0.5
+			},
+			"control": {
+				"maxDis": 40,
+				"minDis": 15,
+				"target": { "x": -0.7, "y": 5.05, "z": 0, "duration": 2 }
+			}
+		},
+		{
+			"p1": { "x": -60, "y": 4.71, "z": -0.44, "duration": 1 },
+			"p2": {
+				"x": -25,
+				"y": 4.71,
+				"z": -0.44,
+				"duration": 1,
+				"delay": 0.5
+			},
+			"control": {
+				"maxDis": 40,
+				"minDis": 15,
+				"target": { "x": 0, "y": 4.71, "z": -0.44, "duration": 2 }
+			}
+		}
+	],
+	"titleScene": {
+		"isMobile": { "x": 94.82, "y": 68.89, "z": 41.21, "duration": 1 },
+		"notMobile": { "x": 60, "y": 110, "z": 0, "duration": 1 }
+	}
+}
