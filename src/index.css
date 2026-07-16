@@ -109,7 +109,8 @@ body:has(.card[data-color='green']:hover) {
 .logo {
 	border-radius: 8.889px;
 	background: #fff;
-	box-shadow: 0px 10px 35px -4px rgba(67, 83, 255, 0.15),
+	box-shadow:
+		0px 10px 35px -4px rgba(67, 83, 255, 0.15),
 		0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
 }
 
@@ -190,13 +191,49 @@ body:has(.card[data-color='green']:hover) {
 	position: relative;
 	border-radius: 10px;
 	border: #2b77e7;
-	box-shadow: 0.6vmin 0.6vmin #336cc1, 1vmin 1vmin #0092db, 1vmin 1vmin #0092db,
-		0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db;
+	box-shadow:
+		0.6vmin 0.6vmin #336cc1,
+		1vmin 1vmin #0092db,
+		1vmin 1vmin #0092db,
+		0.65vmin 1vmin #0092db,
+		1vmin 0.65vmin #0092db;
 }
 
 .neo-brutalism-white {
 	background: #fff;
 	border: #fff;
-	box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
-		0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+	box-shadow:
+		0.6vmin 0.6vmin #fff,
+		1vmin 1vmin #d2e4ff,
+		1vmin 1vmin #d2e4ff,
+		0.65vmin 1vmin #d2e4ff,
+		1vmin 0.65vmin #d2e4ff;
+}
+
+@keyframes showUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes showRight {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.animate-show-up {
+	animation: showUp 0.3s ease-out forwards;
+}
+.animate-show-right {
+	animation: showRight 0.3s ease-out forwards;
 }

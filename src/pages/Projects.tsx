@@ -21,12 +21,12 @@ const Projects = ({ handleClose }: { handleClose: () => void }) => {
 			position={[-0.7, 5.05, -12.021]}
 			scale={0.2}
 		>
-			<main className="flex flex-col items-center w-[870px] h-[785px] bg-bgColor select-none">
+			<section className="flex flex-col items-center w-[870px] h-[785px] bg-bgColor select-none animate-show-up">
 				{index === -1 && (
 					<List handleClick={handleClick} handleClose={handleClose} />
 				)}
 				{index !== -1 && <Project index={index} func={handleClick} />}
-			</main>
+			</section>
 		</Html>
 	)
 }

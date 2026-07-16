@@ -4,7 +4,7 @@ import { about } from '../constants'
 
 const Exp = () => {
 	return (
-		<>
+		<div className="flex w-full animate-show-right">
 			<div className="w-[25%] flex flex-col text-primary text-[20px] md:text-[25px] items-end justify-between pt-4 pb-4">
 				<h2 className="text-right">{'<ul>'}</h2>
 				<h2 className="text-rignt">{'</ul>'}</h2>
@@ -21,7 +21,7 @@ const Exp = () => {
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	)
 }
 

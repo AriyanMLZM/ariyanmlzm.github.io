@@ -25,7 +25,7 @@ const Musics = ({
 			rotation={[0, -Math.PI / 2, 0]}
 			scale={0.2}
 		>
-			<div className="bg-[#111] flex w-[458px] h-[575px] flex-col select-none">
+			<section className="bg-[#111] flex w-[458px] h-[575px] flex-col select-none animate-show-up">
 				<section className="flex justify-around items-center">
 					<Icon icon="basil:music-solid" className="text-white text-[40px]" />
 					<h1 className="text-purple-500 font-bold text-[30px] font-mono w-[200px] text-center">
@@ -50,7 +50,7 @@ const Musics = ({
 						/>
 					))}
 				</section>
-			</div>
+			</section>
 		</Html>
 	)
 }

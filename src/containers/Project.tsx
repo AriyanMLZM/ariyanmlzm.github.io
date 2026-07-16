@@ -22,7 +22,7 @@ const Project = ({ index, func }: any) => {
 					/>
 				</a>
 			</section>
-			<section className="flex flex-col w-full h-full overflow-auto md:px-0 px-[20%] pb-8">
+			<section className="flex flex-col w-full h-full overflow-auto md:px-0 px-[20%] pb-8 animate-show-right">
 				<section className="w-full flex flex-col justify-between items-center px-8">
 					<div className=" relative w-full md:h-[440px] h-[250px] flex justify-center items-center">
 						<div className=" absolute z-0 w-[99%] md:h-[438px] h-[248px] rounded-[40px] bg-gray-700 animate-pulse" />

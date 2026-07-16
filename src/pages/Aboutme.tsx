@@ -23,7 +23,7 @@ const About = ({ handleClose }: { handleClose: () => void }) => {
 			position={[-0.357182, 17.9479, 7.101]}
 			scale={0.2}
 		>
-			<main className="flex flex-col items-center w-[1800px] h-[950px] bg-bgColor select-none">
+			<section className="flex flex-col items-center w-[1800px] h-[950px] bg-bgColor select-none animate-show-up">
 				<nav className="flex w-[30%] md:w-[50%] gap-20 justify-between h-[10%] md:text-[40px] text-[30px] text-gray-500">
 					<Button active={tab === 1 && true} func={handleTabs} tab={1}>
 						About
@@ -51,7 +51,7 @@ const About = ({ handleClose }: { handleClose: () => void }) => {
 				<section className="w-[60%] md:w-full h-[20%] flex flex-row pb-4">
 					<Footer />
 				</section>
-			</main>
+			</section>
 		</Html>
 	)
 }
