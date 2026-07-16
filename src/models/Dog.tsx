@@ -3,15 +3,12 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { Mesh } from 'three'
 
 import modelGltf from '../assets/3d/dog.glb'
-import { useSounds } from '../hooks'
 
-const Dog = () => {
+const Dog = ({ bark }: { bark: () => void }) => {
 	const { scene, animations } = useGLTF(modelGltf) as any
 	const modelRef = useRef<Mesh>(null)
 	const { actions } = useAnimations(animations, modelRef)
 	const [act, setAct] = useState(0)
-
-	const { dogS } = useSounds()
 
 	useEffect(() => {
 		if (act === 0) {
@@ -26,7 +23,7 @@ const Dog = () => {
 	}, [act])
 
 	const changeAct = () => {
-		if (dogS.current.paused) dogS.current.play()
+		bark()
 		if (act !== 1) {
 			setAct(1)
 			setTimeout(() => {

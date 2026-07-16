@@ -76,7 +76,7 @@ const useMusics = (clickS: MutableRefObject<HTMLAudioElement>) => {
 		}
 	}
 
-	return { musics, changeMusic, togglePlaying, isPlaying, musicInd }
+	return { changeMusic, togglePlaying, isPlaying, musicInd }
 }
 
 export default useMusics

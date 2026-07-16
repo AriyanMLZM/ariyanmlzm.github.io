@@ -31,17 +31,20 @@ const useSounds = () => {
 	const holoClick = () => {
 		if (holoS.current.paused) holoS.current.play()
 	}
+	const bark = () => {
+		if (dogS.current.paused) dogS.current.play()
+	}
 
 	return {
 		clickS,
 		cameraS,
 		powerS,
-		dogS,
 		dingS,
 		rainS,
 		pbS,
 		riff,
 		holoClick,
+		bark,
 	}
 }
 

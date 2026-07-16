@@ -8,35 +8,47 @@ import {
 import { gsap } from 'gsap'
 import round from 'lodash/round'
 import {
-	PointLight as pointLightType,
-	AmbientLight as ambientLightType,
+	type PointLight as PointLightType,
+	type AmbientLight as AmbientLightType,
 } from 'three'
 
 import { Dog, Model1, Model2, Rain } from '../models'
 import { Gifs, Nav } from '../containers'
 import { Aboutme, Projects, Start, Loader, Musics } from '.'
-import { useMusics, usePics, useScene, useSounds } from '../hooks'
-import { ghosting } from '../utils'
+import {
+	useGhost,
+	useMusics,
+	usePics,
+	useRain,
+	useScene,
+	useSounds,
+} from '../hooks'
 import { Title } from '../components'
 
 const Home = () => {
-	const [ghosted, setGhosted] = useState(false)
 	const [isAnimating, setIsAnimating] = useState(false)
 	const [isMobile, setIsMobile] = useState(false)
 	const [dpr, setDpr] = useState(1)
 	const [lowfps, setLowfps] = useState(false)
 
-	const pl = useRef<pointLightType>(null)
-	const al = useRef<ambientLightType>(null)
+	const pl = useRef<PointLightType>(null)
+	const al = useRef<AmbientLightType>(null)
 
 	const timeline = gsap.timeline()
-	const toggleIsAnimating = (stat?: boolean) =>
+	const toggleAnimating = (stat?: boolean) =>
 		setIsAnimating((prev) => (stat !== undefined ? stat : !prev))
 
-	const { clickS, dingS, rainS, powerS, pbS, cameraS, riff, holoClick } =
+	const { clickS, dingS, rainS, powerS, pbS, cameraS, riff, holoClick, bark } =
 		useSounds()
 	const { changeMusic, togglePlaying, isPlaying, musicInd } = useMusics(clickS)
 	const { pics, changePic } = usePics(isAnimating)
+
+	const { isRain, toggleRain } = useRain(
+		togglePlaying,
+		rainS,
+		al,
+		toggleAnimating,
+	)
 
 	const {
 		changeScene,
@@ -49,7 +61,7 @@ const Home = () => {
 		closeScene,
 	} = useScene(
 		timeline,
-		toggleIsAnimating,
+		toggleAnimating,
 		cameraS,
 		clickS,
 		dingS,
@@ -57,23 +69,18 @@ const Home = () => {
 		isAnimating,
 		togglePlaying,
 	)
-
-	const toggleGhosting = (stat: boolean) =>
-		ghosting(
-			stat,
-			powerS,
-			rainS,
-			setIsAnimating,
-			setGhosted,
-			togglePlaying,
-			pl,
-			al,
-			pbS,
-		)
+	const { ghosted, ghosting } = useGhost(
+		powerS,
+		toggleAnimating,
+		pl,
+		al,
+		pbS,
+		toggleRain,
+	)
 
 	useEffect(() => {
-		if (pics.every((val) => val === 3)) toggleGhosting(true)
-		else if (ghosted) toggleGhosting(false)
+		if (pics.every((val) => val === 3)) ghosting(true)
+		else if (ghosted) ghosting(false)
 	}, [pics])
 
 	useEffect(() => {
@@ -82,14 +89,14 @@ const Home = () => {
 
 	return (
 		<>
-			{start && <Nav />}
+			{start && <Nav toggleRain={toggleRain} />}
 			<Canvas
 				className="w-full h-full bg-transparent z-10"
 				dpr={dpr}
 				gl={{
 					powerPreference: 'high-performance',
-					antialias: lowfps ? false : true,
-					stencil: lowfps ? false : true,
+					antialias: !lowfps,
+					stencil: !lowfps,
 				}}
 			>
 				<PerformanceMonitor
@@ -164,8 +171,8 @@ const Home = () => {
 						ref={controlRef}
 					/>
 				</Suspense>
-				<Suspense fallback={null}>{start && <Dog />}</Suspense>
-				<Suspense fallback={null}>{ghosted && <Rain />}</Suspense>
+				<Suspense fallback={null}>{start && <Dog bark={bark} />}</Suspense>
+				<Suspense fallback={null}>{isRain && <Rain />}</Suspense>
 			</Canvas>
 		</>
 	)
