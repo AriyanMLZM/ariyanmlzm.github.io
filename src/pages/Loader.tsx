@@ -1,7 +1,10 @@
 import { Html, useProgress } from '@react-three/drei'
+import { useTranslation } from 'react-i18next'
 
 const Loader = () => {
 	const { progress } = useProgress()
+	const { t } = useTranslation('menu')
+
 	return (
 		<Html center className="h-screen">
 			<div
@@ -9,10 +12,10 @@ const Loader = () => {
 			>
 				<div className="h-[30%] flex flex-col justify-center items-center">
 					<h1 className="text-primary md:text-[50px] text-[30px] font-mono">
-						Hi, I'm Ariyan!
+						{t('greet1')}
 					</h1>
 					<h1 className="text-white md:text-[40px] text-[22px] font-mono">
-						Welcome to my portfolio
+						{t('greet2')}
 					</h1>
 				</div>
 				<div className="h-[30%] flex flex-col justify-center items-center">
@@ -24,7 +27,7 @@ const Loader = () => {
 					</h1>
 				</div>
 				<div className="h-[20%] flex justify-center text-white md:text-[30px] text-[20px] font-mono">
-					<h1>Hang on, loading 3d model...</h1>
+					<h1>{t('loading')}</h1>
 				</div>
 			</div>
 		</Html>

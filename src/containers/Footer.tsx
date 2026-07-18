@@ -6,7 +6,7 @@ const Footer = () => {
 		<>
 			<div className="w-[25%] flex flex-col text-orange-600 text-[20px] md:text-[25px] items-end justify-between pt-4 pb-4">
 				<h2 className="text-right">{'<footer>'}</h2>
-				<h2 className="text-rignt">{'</footer>'}</h2>
+				<h2 className="text-right">{'</footer>'}</h2>
 			</div>
 			<div className="w-[50%] flex md:gap-20 gap-10 items-center justify-center pl-4">
 				<a href={about.github} target="_blank" rel="noopener noreferrer">
