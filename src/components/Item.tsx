@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { v4 as uuid } from 'uuid'
 
 const Item = ({
@@ -9,6 +10,8 @@ const Item = ({
 	index: number
 	handleClick: (ind: number) => void
 }) => {
+	const { t } = useTranslation('projects')
+
 	return (
 		<button
 			type="button"
@@ -27,15 +30,18 @@ const Item = ({
 				/>
 			</div>
 			<div className="flex flex-col min-h-[220px] w-full">
-				<div className='min-h-[60px]'>
+				<div className="min-h-[60px]">
 					<h1 key={uuid()} className="text-white text-[28px] mt-[40px]">
 						{item.title}
 					</h1>
 					<h2 key={uuid()} className="text-primary text-[25px] mt-2">
-						{item.info}
+						{t(($) => $[index].info)}
 					</h2>
 				</div>
-				<h2 key={uuid()} className="text-orange-500 text-[22px] mt-6 line-clamp-2 p-[20px]">
+				<h2
+					key={uuid()}
+					className="text-orange-500 text-[22px] mt-6 line-clamp-2 p-[20px]"
+				>
 					{item.techs}
 				</h2>
 			</div>

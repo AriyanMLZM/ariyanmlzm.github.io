@@ -28,13 +28,13 @@ const About = ({ handleClose }: { handleClose: () => void }) => {
 			<section className="flex flex-col items-center w-[1800px] h-[950px] bg-bgColor select-none animate-show-up">
 				<nav className="flex w-[30%] md:w-[50%] gap-20 justify-between h-[10%] md:text-[40px] text-[30px] text-gray-500">
 					<Button active={tab === 1 && true} func={handleTabs} tab={1}>
-						{tMenu('about')}
+						{tMenu(($) => $.about)}
 					</Button>
 					<Button active={tab === 2 && true} func={handleTabs} tab={2}>
-						{tMenu('skills')}
+						{tMenu(($) => $.skills)}
 					</Button>
 					<Button active={tab === 3 && true} func={handleTabs} tab={3}>
-						{tMenu('exp')}
+						{tMenu(($) => $.exp)}
 					</Button>
 					<Button func={handleClose}>
 						<CloseIcon className="text-[65px]" />
@@ -44,10 +44,10 @@ const About = ({ handleClose }: { handleClose: () => void }) => {
 					<Header
 						text={
 							tab === 1
-								? tAbout('header')
+								? tAbout(($) => $.header)
 								: tab === 2
-									? tMenu('skills')
-									: tMenu('exp')
+									? tMenu(($) => $.skills)
+									: tMenu(($) => $.exp)
 						}
 					/>
 				</header>

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { v4 as uuid } from 'uuid'
-import en from '../constants/translation.en'
 
 const Exp = () => {
 	const { t } = useTranslation('about')
@@ -12,13 +11,13 @@ const Exp = () => {
 				<h2 className="text-right">{'</ul>'}</h2>
 			</div>
 			<div className="w-[50%] flex flex-col overflow-y-auto pl-4 py-[20px] text-[28px] md:text-[35px]">
-				{en.about.exp.map((_, index: number) => (
+				{t(($) => $.exp, { returnObjects: true }).map((item) => (
 					<div className="mb-6" key={uuid()}>
 						<h1 className="text-white font-bold" key={uuid()}>
-							{t(($) => $.exp[0].text)}
+							{item.title}
 						</h1>
 						<h2 className="text-gray-500" key={uuid()}>
-							{t(($) => $.exp[index].text)}
+							{item.text}
 						</h2>
 					</div>
 				))}

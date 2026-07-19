@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import { projects } from '../constants'
 import { Icon } from '@iconify/react'
 
 const Project = ({ index, func }: any) => {
+	const { t } = useTranslation('projects')
+
 	return (
 		<>
 			<section className="w-full h-[10%] flex items-center py-6 md:px-0 px-[20%] justify-between">
@@ -45,7 +48,7 @@ const Project = ({ index, func }: any) => {
 				</section>
 				<section className="flex justify-center items-center mt-6 px-8">
 					<p className="text-white text-[22px] text-justify">
-						{projects[index].text}
+						{t(($) => $[index].text)}
 					</p>
 				</section>
 			</section>

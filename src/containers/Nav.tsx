@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react'
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Button = ({
 	func,
@@ -42,6 +43,7 @@ const Nav = ({
 	const [isClose, setIsClose] = useState(true)
 	const toggleRef = useRef<HTMLSpanElement>(null)
 	const menuRef = useRef<HTMLDivElement>(null)
+	const { t } = useTranslation('menu')
 
 	useEffect(() => {
 		const toggle = toggleRef.current
@@ -116,13 +118,13 @@ const Nav = ({
 				{!isClose && (
 					<>
 						<Button func={() => changeScene(1)} active={scene === 1}>
-							About
+							{t(($) => $.about)}
 						</Button>
 						<Button func={() => changeScene(2)} active={scene === 2}>
-							Projects
+							{t(($) => $.projects)}
 						</Button>
 						<Button func={() => changeScene(3)} active={scene === 3}>
-							Musics
+							{t(($) => $.musics)}
 						</Button>
 						<Button func={() => togglePlaying()} active={isPlaying}>
 							<Icon icon="ic:round-music-note" className="text-[25px]" />

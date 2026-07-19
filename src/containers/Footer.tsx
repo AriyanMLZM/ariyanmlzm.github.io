@@ -1,4 +1,4 @@
-import { about } from '../constants'
+import { links } from '../constants'
 import { Icon } from '@iconify/react'
 
 const Footer = () => {
@@ -9,26 +9,26 @@ const Footer = () => {
 				<h2 className="text-right">{'</footer>'}</h2>
 			</div>
 			<div className="w-[50%] flex md:gap-20 gap-10 items-center justify-center pl-4">
-				<a href={about.github} target="_blank" rel="noopener noreferrer">
+				<a href={links.github} target="_blank" rel="noopener noreferrer">
 					<Icon
 						icon="mdi:github"
 						className="md:text-[90px] text-[70px] text-white hover:text-primary"
 					/>
 				</a>
-				<a href={about.tel} target="_blank" rel="noopener noreferrer">
+				<a href={links.tel} target="_blank" rel="noopener noreferrer">
 					<Icon
 						icon="ic:baseline-telegram"
 						className="md:text-[90px] text-[70px] text-white hover:text-primary"
 					/>
 				</a>
-				<a href={about.wat} target="_blank" rel="noopener noreferrer">
+				<a href={links.wat} target="_blank" rel="noopener noreferrer">
 					<Icon
 						icon="ic:baseline-whatsapp"
 						className="md:text-[90px] text-[70px] text-white hover:text-primary"
 					/>
 				</a>
 				<a
-					href={`mailto:${about.gmail}`}
+					href={`mailto:${links.gmail}`}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -38,7 +38,7 @@ const Footer = () => {
 					/>
 				</a>
 				<a
-					href={`tel:${about.phone}`}
+					href={`tel:${links.phone}`}
 					target="_blank"
 					rel="noopener noreferrer"
 				>

@@ -12,10 +12,10 @@ const Loader = () => {
 			>
 				<div className="h-[30%] flex flex-col justify-center items-center">
 					<h1 className="text-primary md:text-[50px] text-[30px] font-mono">
-						{t('greet1')}
+						{t(($) => $.greet1)}
 					</h1>
 					<h1 className="text-white md:text-[40px] text-[22px] font-mono">
-						{t('greet2')}
+						{t(($) => $.greet2)}
 					</h1>
 				</div>
 				<div className="h-[30%] flex flex-col justify-center items-center">
@@ -27,7 +27,7 @@ const Loader = () => {
 					</h1>
 				</div>
 				<div className="h-[20%] flex justify-center text-white md:text-[30px] text-[20px] font-mono">
-					<h1>{t('loading')}</h1>
+					<h1>{t(($) => $.loading)}</h1>
 				</div>
 			</div>
 		</Html>

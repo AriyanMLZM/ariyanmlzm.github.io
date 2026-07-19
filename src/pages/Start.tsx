@@ -12,7 +12,7 @@ const Start = ({ handleStart }: { handleStart: () => void }) => {
 					onClick={handleStart}
 					className="hover:text-black font-mono hover:bg-primary border-[2px] rounded-[20px] border-primary text-primary md:w-[200px] w-[150px] md:text-[50px] text-[40px] flex items-center justify-center"
 				>
-					{t('start')}
+					{t(($) => $.start)}
 				</button>
 			</div>
 		</Html>

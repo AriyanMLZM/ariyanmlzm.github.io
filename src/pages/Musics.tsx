@@ -5,6 +5,7 @@ import { musics } from '../constants'
 import { Music } from '../containers'
 import { CloseIcon } from '../components'
 import { Icon } from '@iconify/react'
+import { useTranslation } from 'react-i18next'
 
 const Musics = ({
 	ind,
@@ -17,6 +18,8 @@ const Musics = ({
 	handleClose: () => void
 	changeMusic: (action: number, ind?: number, timeout?: boolean) => void
 }) => {
+	const { t } = useTranslation('menu')
+
 	return (
 		<Html
 			transform
@@ -29,7 +32,7 @@ const Musics = ({
 				<section className="flex justify-around items-center">
 					<Icon icon="basil:music-solid" className="text-white text-[40px]" />
 					<h1 className="text-purple-500 font-bold text-[30px] font-mono w-[200px] text-center">
-						{play ? 'Playing' : 'Paused'}
+						{play ? t(($) => $.playing) : t(($) => $.paused)}
 					</h1>
 					<button
 						onClick={handleClose}
