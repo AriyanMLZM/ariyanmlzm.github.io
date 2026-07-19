@@ -2,28 +2,7 @@ import { Icon } from '@iconify/react'
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-
-const Button = ({
-	func,
-	active = false,
-	children,
-	className = '',
-}: {
-	func: any
-	active?: boolean
-	children: React.ReactNode
-	className?: string
-}) => {
-	return (
-		<button
-			type="button"
-			className={`hover:text-primary px-[8px] py-[4px] flex items-center justify-center ${active && 'text-primary'} ${className}`}
-			onClick={() => func()}
-		>
-			{children}
-		</button>
-	)
-}
+import { Button2, LangSelector } from '../components'
 
 const Nav = ({
 	toggleRain,
@@ -105,36 +84,48 @@ const Nav = ({
 
 	return (
 		<nav className="fixed top-[5px] left-[5px] md:text-[20px] text-[16px] text-white z-20 bg-black/50 flex rounded-[20px]">
-			<Button func={() => setIsClose((prev) => !prev)} active={!isClose}>
+			<Button2 func={() => setIsClose((prev) => !prev)} active={!isClose}>
 				<span ref={toggleRef} className="inline-flex">
-					<Icon icon="mingcute:right-fill" className="text-[30px]" />
+					<Icon
+						icon="mingcute:right-fill"
+						className="md:text-[30px] text-[25px]"
+					/>
 				</span>
-			</Button>
+			</Button2>
 			<div
 				ref={menuRef}
-				className="flex overflow-hidden pointer-events-none invisible opacity-0"
+				className="md:flex overflow-hidden pointer-events-none invisible opacity-0"
 				aria-hidden={isClose}
 			>
 				{!isClose && (
 					<>
-						<Button func={() => changeScene(1)} active={scene === 1}>
-							{t(($) => $.about)}
-						</Button>
-						<Button func={() => changeScene(2)} active={scene === 2}>
-							{t(($) => $.projects)}
-						</Button>
-						<Button func={() => changeScene(3)} active={scene === 3}>
-							{t(($) => $.musics)}
-						</Button>
-						<Button func={() => togglePlaying()} active={isPlaying}>
-							<Icon icon="ic:round-music-note" className="text-[25px]" />
-						</Button>
-						<Button
-							func={() => toggleRain({ withEffect: true })}
-							active={isRain}
-						>
-							<Icon icon="lets-icons:rain-fill" className="text-[25px]" />
-						</Button>
+						<div className="flex">
+							<Button2 func={() => changeScene(1)} active={scene === 1}>
+								{t(($) => $.about)}
+							</Button2>
+							<Button2 func={() => changeScene(2)} active={scene === 2}>
+								{t(($) => $.projects)}
+							</Button2>
+							<Button2 func={() => changeScene(3)} active={scene === 3}>
+								{t(($) => $.musics)}
+							</Button2>
+							<Button2 func={() => togglePlaying()} active={isPlaying}>
+								<Icon
+									icon="ic:round-music-note"
+									className="md:text-[25px] text-[22px]"
+								/>
+							</Button2>
+							<Button2
+								func={() => toggleRain({ withEffect: true })}
+								active={isRain}
+							>
+								<Icon
+									icon="lets-icons:rain-fill"
+									className="md:text-[25px] text-[22px]"
+								/>
+							</Button2>
+						</div>
+						<LangSelector />
 					</>
 				)}
 			</div>

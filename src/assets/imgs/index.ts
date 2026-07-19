@@ -32,8 +32,14 @@ import intro from './intro.jpg'
 import love from './love.jpg'
 import mareux from './mareux.jpg'
 import trench from './trench.jpg'
+import fa from './fa.png'
+import en from './en.png'
+import de from './de.png'
 
 export {
+	fa,
+	en,
+	de,
 	afterdark,
 	endless,
 	intro,

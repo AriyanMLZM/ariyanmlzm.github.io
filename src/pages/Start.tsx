@@ -1,12 +1,13 @@
 import { Html } from '@react-three/drei'
 import { useTranslation } from 'react-i18next'
+import { LangSelector } from '../components'
 
 const Start = ({ handleStart }: { handleStart: () => void }) => {
 	const { t } = useTranslation('menu')
 
 	return (
 		<Html center position={[0, 50, 0]}>
-			<div className="bg-black font-light w-screen h-screen flex justify-center items-center">
+			<div className="bg-black font-light w-screen h-screen flex flex-col gap-[10px] justify-center items-center">
 				<button
 					type="button"
 					onClick={handleStart}
@@ -14,6 +15,7 @@ const Start = ({ handleStart }: { handleStart: () => void }) => {
 				>
 					{t(($) => $.start)}
 				</button>
+				<LangSelector />
 			</div>
 		</Html>
 	)
