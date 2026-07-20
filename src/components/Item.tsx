@@ -34,7 +34,7 @@ const Item = ({
 					<h1 key={uuid()} className="text-white text-[28px] mt-[40px]">
 						{item.title}
 					</h1>
-					<h2 key={uuid()} className="text-primary text-[25px] mt-2">
+					<h2 key={uuid()} className="text-primary text-[25px] mt-2" dir="rtl">
 						{t(($) => $[index].info)}
 					</h2>
 				</div>

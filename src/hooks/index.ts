@@ -5,6 +5,7 @@ import useScene from './useScene'
 import usePics from './usePics'
 import useGhost from './useGhost'
 import useRain from './useRain'
+import useLang from './useLang'
 
 export {
 	useMusics,
@@ -14,4 +15,5 @@ export {
 	usePics,
 	useGhost,
 	useRain,
+	useLang,
 }
