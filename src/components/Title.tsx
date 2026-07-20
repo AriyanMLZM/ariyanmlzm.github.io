@@ -1,28 +1,30 @@
 import { Text } from '@react-three/drei'
-import { useTranslation } from 'react-i18next'
+import { useLang } from '../hooks'
+import vazir from '../assets/fonts/Vazir.ttf'
 
 const Title = () => {
-	const { t } = useTranslation('menu')
+	const { tMenu, lang } = useLang()
 
 	return (
-		<group position={[14, 0.6, 6.5]} rotation={[0, Math.PI / 2, 0]}>
+		<group position={[14, 0.5, 6.5]} rotation={[0, Math.PI / 2, 0]}>
 			<Text
 				rotation={[-Math.PI / 2, 0, 0]}
 				fontSize={2.2}
 				fontWeight={500}
-				textAlign="left"
+				textAlign={lang === 'fa' ? 'right' : 'left'}
+				font={vazir}
 			>
-				Ariyan Molazem
+				{tMenu(($) => $.name)}
 			</Text>
 			<Text
 				rotation={[-Math.PI / 2, 0, 0]}
 				fontSize={1.2}
 				fontWeight={500}
-				textAlign="left"
-				position={[-2.8, 0, 3.7]}
+				textAlign={lang === 'fa' ? 'right' : 'left'}
+				position={[lang === 'fa' ? -1.3 : -2.8, 0, 3.7]}
 				lineHeight={1.8}
 			>
-				{t(($) => $.title1) + '\n' + t(($) => $.title2)}
+				{tMenu(($) => $.title1) + '\n' + tMenu(($) => $.title2)}
 			</Text>
 		</group>
 	)

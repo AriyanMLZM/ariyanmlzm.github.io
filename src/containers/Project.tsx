@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next'
 import { projects } from '../constants'
 import { Icon } from '@iconify/react'
+import { useLang } from '../hooks'
 
 const Project = ({ index, func }: any) => {
-	const { t } = useTranslation('projects')
+	const { tProjects, lang } = useLang()
 
 	return (
 		<>
@@ -47,8 +47,11 @@ const Project = ({ index, func }: any) => {
 					</div>
 				</section>
 				<section className="flex justify-center items-center mt-6 px-8">
-					<p className="text-white text-[22px] text-justify">
-						{t(($) => $[index].text)}
+					<p
+						className="text-white text-[22px] text-justify"
+						dir={lang === 'fa' ? 'rtl' : 'ltr'}
+					>
+						{tProjects(($) => $[index].text)}
 					</p>
 				</section>
 			</section>

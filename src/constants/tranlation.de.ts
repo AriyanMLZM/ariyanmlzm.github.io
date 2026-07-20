@@ -1,7 +1,7 @@
 const de = {
 	about: {
-		header: 'Hi, ich bin Ariyan.',
-		info: 'Ich bin Software-Ingenieur und JavaScript Fullstack-Entwickler. Ich habe über {{year}} Jahre Erfahrung in der Webentwicklung. Es macht mir Spaß, neue Ideen mit Programmierung zu verbinden, mich durch Code zu Lösungen zu arbeiten und komplexe Probleme zu lösen. Ich versuche stets, neue und einzigartige Designs zu kreieren. Einige meiner Arbeiten kannst du im Bereich „Projekte“ sehen.',
+		header: 'Hallo, ich bin Ariyan.',
+		info: 'Ich bin Software-Ingenieur und JavaScript Fullstack-Entwickler. Ich habe über {{year}} Jahre Erfahrung in der Webentwicklung. Es macht mir Spaß, neue Ideen mit Programmierung zu verbinden, mich durch Code zu Lösungen zu arbeiten und komplexe Probleme zu lösen. Ich versuche stets, neue und einzigartige Designs zu kreieren. Einige meiner Arbeiten kannst du im Bereich Projekte sehen.',
 		exp: [
 			{
 				title: 'Master of Software Engineering',
@@ -104,6 +104,7 @@ const de = {
 		},
 	],
 	menu: {
+		name: 'Ariyan Molazem',
 		about: 'Über mich',
 		projects: 'Projekte',
 		musics: 'Musik',
@@ -113,7 +114,7 @@ const de = {
 		paused: 'Pausiert',
 		title1: 'Software-Ingenieur',
 		title2: 'Fullstack-Entwickler',
-		greet1: 'Hi, ich bin Ariyan!',
+		greet1: 'Hallo, ich bin Ariyan!',
 		greet2: 'Willkommen in meinem 3D-Portfolio',
 		loading: 'Einen Moment, 3D-Modell lädt...',
 		start: 'Starten',

@@ -104,6 +104,7 @@ const en = {
 		},
 	],
 	menu: {
+		name: 'Ariyan Molazem',
 		about: 'About',
 		projects: 'Projects',
 		musics: 'Musics',

@@ -3,14 +3,12 @@ import { Html } from '@react-three/drei'
 
 import { Button, CloseIcon } from '../components'
 import { Header, Body, Footer } from '../containers'
-import { useSounds } from '../hooks'
-import { useTranslation } from 'react-i18next'
+import { useLang, useSounds } from '../hooks'
 
 const About = ({ handleClose }: { handleClose: () => void }) => {
 	const [tab, setTab] = useState(1)
 	const { clickS } = useSounds()
-	const { t: tAbout } = useTranslation('about')
-	const { t: tMenu } = useTranslation('menu')
+	const { tAbout, tMenu } = useLang()
 
 	const handleTabs = (num: number) => {
 		if (clickS.current.paused) clickS.current.play()

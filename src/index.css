@@ -5,15 +5,18 @@
 @font-face {
 	font-family: 'Vazir';
 	src: url('./assets/fonts/Vazir.ttf') format('truetype');
+	unicode-range: U+0600-06FF;
 }
 
 @font-face {
 	font-family: 'Poppins';
 	src: url('./assets/fonts/Poppins.ttf') format('truetype');
+	unicode-range: U+0000-00FF;
 }
 
 html {
 	@apply bg-bgColor;
+	font-family: 'Poppins', 'Vazir';
 }
 
 ::-webkit-scrollbar {

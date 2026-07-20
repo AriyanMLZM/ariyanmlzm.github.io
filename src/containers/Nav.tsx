@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react'
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Button2, LangSelector } from '../components'
+import { useLang } from '../hooks'
 
 const Nav = ({
 	toggleRain,
@@ -22,7 +22,7 @@ const Nav = ({
 	const [isClose, setIsClose] = useState(true)
 	const toggleRef = useRef<HTMLSpanElement>(null)
 	const menuRef = useRef<HTMLDivElement>(null)
-	const { t } = useTranslation('menu')
+	const { tMenu } = useLang()
 
 	useEffect(() => {
 		const toggle = toggleRef.current
@@ -101,13 +101,13 @@ const Nav = ({
 					<>
 						<div className="flex">
 							<Button2 func={() => changeScene(1)} active={scene === 1}>
-								{t(($) => $.about)}
+								{tMenu(($) => $.about)}
 							</Button2>
 							<Button2 func={() => changeScene(2)} active={scene === 2}>
-								{t(($) => $.projects)}
+								{tMenu(($) => $.projects)}
 							</Button2>
 							<Button2 func={() => changeScene(3)} active={scene === 3}>
-								{t(($) => $.musics)}
+								{tMenu(($) => $.musics)}
 							</Button2>
 							<Button2 func={() => togglePlaying()} active={isPlaying}>
 								<Icon

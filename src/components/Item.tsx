@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next'
 import { v4 as uuid } from 'uuid'
+import { useLang } from '../hooks'
 
 const Item = ({
 	item,
@@ -10,7 +10,7 @@ const Item = ({
 	index: number
 	handleClick: (ind: number) => void
 }) => {
-	const { t } = useTranslation('projects')
+	const { tProjects, lang } = useLang()
 
 	return (
 		<button
@@ -34,8 +34,12 @@ const Item = ({
 					<h1 key={uuid()} className="text-white text-[28px] mt-[40px]">
 						{item.title}
 					</h1>
-					<h2 key={uuid()} className="text-primary text-[25px] mt-2" dir="rtl">
-						{t(($) => $[index].info)}
+					<h2
+						key={uuid()}
+						className="text-primary text-[25px] mt-2"
+						dir={lang === 'fa' ? 'rtl' : 'ltr'}
+					>
+						{tProjects(($) => $[index].info)}
 					</h2>
 				</div>
 				<h2

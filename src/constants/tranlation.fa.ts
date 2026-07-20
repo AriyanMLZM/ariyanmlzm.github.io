@@ -104,6 +104,7 @@ const fa = {
 		},
 	],
 	menu: {
+		name: 'آرین ملازم',
 		about: 'درباره من',
 		projects: 'پروژه‌ها',
 		musics: 'موسیقی',

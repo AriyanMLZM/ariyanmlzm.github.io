@@ -1,18 +1,16 @@
-import { useTranslation } from 'react-i18next'
 import { de, en, fa } from '../assets/imgs'
 import Button2 from './Button2'
+import { useLang } from '../hooks'
 
 const LangSelector = () => {
-	const { i18n } = useTranslation()
-
-	const changeLang = (lang: string) => i18n.changeLanguage(lang)
+	const { changeLang, lang } = useLang()
 
 	return (
 		<div className="flex justify-center items-center px-[5px] py-[5px]">
 			<Button2
 				func={() => changeLang('en')}
 				className={
-					i18n.language.split('-')[0] === 'en'
+					lang === 'en'
 						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
 						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
 				}
@@ -27,7 +25,7 @@ const LangSelector = () => {
 			<Button2
 				func={() => changeLang('de')}
 				className={
-					i18n.language.split('-')[0] === 'de'
+					lang === 'de'
 						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
 						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
 				}
@@ -42,7 +40,7 @@ const LangSelector = () => {
 			<Button2
 				func={() => changeLang('fa')}
 				className={
-					i18n.language.split('-')[0] === 'fa'
+					lang === 'fa'
 						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
 						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
 				}
