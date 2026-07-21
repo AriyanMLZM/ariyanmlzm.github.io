@@ -47,7 +47,7 @@ const Title = () => {
 				fontSize={1.2}
 				fontWeight={400}
 				textAlign="left"
-				position={[-2.8, 0, 3.7]}
+				position={[-3.37, 0, 3.7]}
 				lineHeight={1.8}
 				font={poppins}
 				visible={lang !== 'fa'}
