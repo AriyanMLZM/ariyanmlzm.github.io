@@ -1,6 +1,6 @@
 import useMusics from './useMusics'
 import useSounds from './useSounds'
-import useTloader from './useTloader'
+import useMaterials from './useMaterials'
 import useScene from './useScene'
 import usePics from './usePics'
 import useGhost from './useGhost'
@@ -10,7 +10,7 @@ import useLang from './useLang'
 export {
 	useMusics,
 	useSounds,
-	useTloader,
+	useMaterials,
 	useScene,
 	usePics,
 	useGhost,
