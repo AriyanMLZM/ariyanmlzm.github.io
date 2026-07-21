@@ -131,6 +131,13 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 					geometry={nodes.frame5.geometry}
 					material={materials.baked3}
 				/>
+				<mesh
+					name="frame6"
+					onClick={() => funcs.changeScene(2)}
+					geometry={nodes.frame3.geometry}
+					material={materials.baked3}
+					position={[0, 3, 0]}
+				/>
 				<group name="tv" onClick={() => funcs.changeScene(1)}>
 					<mesh
 						name="Cube007"

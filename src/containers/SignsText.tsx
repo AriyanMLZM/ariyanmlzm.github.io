@@ -36,6 +36,16 @@ const SignsText = () => {
 			>
 				{tMenu(($) => $.musics)}
 			</Text>
+			<Text
+				position={[-0.7, 1.55, 0]}
+				textAlign="center"
+				color="black"
+				font={poppinsB}
+				fontSize={0.6}
+				fontWeight={700}
+			>
+				Lang.
+			</Text>
 		</group>
 	)
 }
