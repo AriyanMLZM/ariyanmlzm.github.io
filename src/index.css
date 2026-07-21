@@ -4,13 +4,29 @@
 
 @font-face {
 	font-family: 'Vazir';
-	src: url('./assets/fonts/Vazir.ttf') format('truetype');
+	src: url('./assets/fonts/vazir/Vazir-FD-WOL.woff2') format('woff2')
+		url('./assets/fonts/vazir/Vazir-FD-WOL.woff') format('woff');
+	font-weight: 400;
+	unicode-range: U+0600-06FF;
+}
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir/Vazir-Bold-FD-WOL.woff2') format('woff2')
+		url('./assets/fonts/vazir/Vazir-Bold-FD-WOL.woff') format('woff');
+	font-weight: 700;
 	unicode-range: U+0600-06FF;
 }
 
 @font-face {
 	font-family: 'Poppins';
-	src: url('./assets/fonts/Poppins.ttf') format('truetype');
+	src: url('./assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+	font-weight: 400;
+	unicode-range: U+0000-00FF;
+}
+@font-face {
+	font-family: 'Poppins';
+	src: url('./assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+	font-weight: 700;
 	unicode-range: U+0000-00FF;
 }
 

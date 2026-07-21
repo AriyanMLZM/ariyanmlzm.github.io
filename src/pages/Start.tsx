@@ -7,7 +7,7 @@ const Start = ({ handleStart }: { handleStart: () => void }) => {
 
 	return (
 		<Html center position={[0, 50, 0]}>
-			<div className="bg-black font-light w-screen h-screen flex flex-col gap-[10px] justify-center items-center">
+			<div className="bg-black w-screen h-screen flex flex-col gap-[10px] justify-center items-center">
 				<button
 					type="button"
 					onClick={handleStart}
