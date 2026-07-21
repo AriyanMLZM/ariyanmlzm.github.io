@@ -24,6 +24,8 @@ const useScene = (
 	const cameraRef = useRef<perspectiveCameraType>(null)
 
 	const sceneAnimation = (scene: SceneAnimation, snum: number) => {
+		controlRef.current!.maxDistance = 1000
+		controlRef.current!.minDistance = 1
 		timeline
 			.to(cameraRef.current!.position, scene.p1, 0)
 			.to(
@@ -109,9 +111,10 @@ const useScene = (
 				case 1:
 				case 2:
 				case 3:
+				case 4:
 					sceneAnimation(scenes[snum - 1], snum)
 					break
-				case 4:
+				case 5:
 					timeline.to(
 						cameraRef.current!.position,
 						{

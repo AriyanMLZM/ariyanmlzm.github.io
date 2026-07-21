@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { Group } from 'three'
 
@@ -19,6 +19,7 @@ const Model2 = ({
 	const { nodes, materials, animations } = useGLTF(modelGltf) as any
 	const group = useRef<Group>(null)
 	const { actions } = useAnimations(animations, group)
+	const [hovered, setHovered] = useState(0)
 
 	useEffect(() => {
 		if (!ghosted) {
@@ -124,7 +125,7 @@ const Model2 = ({
 						material={materials['light_text.001']}
 						/> */}
 				</group>
-				<group name="frame41" onClick={() => funcs.changeScene(4)}>
+				<group name="frame41" onClick={() => funcs.changeScene(5)}>
 					<mesh
 						name="Cube020"
 						geometry={nodes.Cube020.geometry}
@@ -150,8 +151,8 @@ const Model2 = ({
 						/> */}
 				</group>
 				<group
-					name="frame31"
-					onClick={() => funcs.changeScene(2)}
+					name="frame6"
+					onClick={() => funcs.changeScene(4)}
 					position={[0, 3, 0]}
 				>
 					<mesh
@@ -175,7 +176,11 @@ const Model2 = ({
 						else funcs.changeScene(3)
 					}}
 					geometry={nodes.left_btn.geometry}
-					material={materials.light_purple}
+					material={
+						hovered === 1 ? materials.light_blue : materials.light_purple
+					}
+					onPointerOver={() => setHovered(1)}
+					onPointerLeave={() => setHovered(0)}
 				/>
 				<mesh
 					name="neom_anthena"
@@ -284,7 +289,11 @@ const Model2 = ({
 						else funcs.changeScene(3)
 					}}
 					geometry={nodes.right_btn.geometry}
-					material={materials.light_purple}
+					material={
+						hovered === 2 ? materials.light_blue : materials.light_purple
+					}
+					onPointerOver={() => setHovered(2)}
+					onPointerLeave={() => setHovered(0)}
 				/>
 				<mesh
 					name="screen_bill"
@@ -308,7 +317,11 @@ const Model2 = ({
 						else funcs.changeScene(3)
 					}}
 					geometry={nodes.stop_btn.geometry}
-					material={materials.light_purple}
+					material={
+						hovered === 3 ? materials.light_blue : materials.light_purple
+					}
+					onPointerOver={() => setHovered(3)}
+					onPointerLeave={() => setHovered(0)}
 				/>
 				<mesh
 					name="tv_screen"

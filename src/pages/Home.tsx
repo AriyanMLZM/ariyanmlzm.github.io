@@ -13,7 +13,7 @@ import {
 } from 'three'
 
 import { Dog, Model1, Model2, Rain } from '../models'
-import { Gifs, Nav, SignsText } from '../containers'
+import { Gifs, LangsText, Nav, SignsText } from '../containers'
 import { Aboutme, Projects, Start, Loader, Musics } from '.'
 import {
 	useGhost,
@@ -172,6 +172,7 @@ const Home = () => {
 							changeMusic={changeMusic}
 						/>
 					)}
+					{scene === 4 && <LangsText closeScene={closeScene} />}
 					<OrbitControls
 						maxDistance={120}
 						minDistance={30}

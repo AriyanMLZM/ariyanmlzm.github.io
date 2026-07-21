@@ -12,7 +12,7 @@
 			"control": {
 				"maxDis": 50,
 				"minDis": 15,
-				"target": { "x": -0.4, "y": 17.98, "z": 0, "duration": 2 }
+				"target": { "x": -0.4, "y": 17.98, "z": 0, "duration": 1.6 }
 			}
 		},
 		{
@@ -27,7 +27,7 @@
 			"control": {
 				"maxDis": 40,
 				"minDis": 15,
-				"target": { "x": -0.7, "y": 5.05, "z": 0, "duration": 2 }
+				"target": { "x": -0.7, "y": 5.05, "z": 0, "duration": 1.6 }
 			}
 		},
 		{
@@ -42,7 +42,32 @@
 			"control": {
 				"maxDis": 40,
 				"minDis": 15,
-				"target": { "x": 0, "y": 4.71, "z": -0.44, "duration": 2 }
+				"target": { "x": 0, "y": 4.71, "z": -0.44, "duration": 1.6 }
+			}
+		},
+		{
+			"p1": {
+				"x": 45.81,
+				"y": 12.18,
+				"z": 23.62,
+				"duration": 1
+			},
+			"p2": {
+				"x": 2.12,
+				"y": 7.83,
+				"z": 11.19,
+				"duration": 1,
+				"delay": 0.5
+			},
+			"control": {
+				"maxDis": 12,
+				"minDis": 6,
+				"target": {
+					"x": -6.94,
+					"y": 3.84,
+					"z": 7.6,
+					"duration": 1.6
+				}
 			}
 		}
 	],

@@ -83,7 +83,7 @@ const Nav = ({
 	}, [isClose])
 
 	return (
-		<nav className="fixed top-[5px] left-[5px] md:text-[20px] text-[16px] text-white z-20 bg-black/50 flex rounded-[20px]">
+		<nav className="fixed top-[5px] left-[5px] md:text-[20px] text-[16px] text-white z-20 bg-black/50 flex rounded-[20px] select-none">
 			<Button2 func={() => setIsClose((prev) => !prev)} active={!isClose}>
 				<span ref={toggleRef} className="inline-flex">
 					<Icon
@@ -108,6 +108,9 @@ const Nav = ({
 							</Button2>
 							<Button2 func={() => changeScene(3)} active={scene === 3}>
 								{tMenu(($) => $.musics)}
+							</Button2>
+							<Button2 func={() => changeScene(4)} active={scene === 4}>
+								Lang.
 							</Button2>
 							<Button2 func={() => togglePlaying()} active={isPlaying}>
 								<Icon

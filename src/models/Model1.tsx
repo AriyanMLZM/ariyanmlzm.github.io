@@ -3,7 +3,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { Group } from 'three'
 
 import modelGltf from '../assets/3d/build.glb'
-import { useMaterials } from '../hooks'
+import { useLang, useMaterials } from '../hooks'
 
 const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 	const { nodes, animations } = useGLTF(modelGltf) as any
@@ -11,6 +11,7 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 	const { actions } = useAnimations(animations, group)
 
 	const materials = useMaterials()
+	const { lang } = useLang()
 
 	useEffect(() => {
 		if (!ghosted) actions['anthenaAction']!.play()
@@ -121,7 +122,7 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 				/>
 				<mesh
 					name="frame4"
-					onClick={() => funcs.changeScene(4)}
+					onClick={() => funcs.changeScene(5)}
 					geometry={nodes.frame4.geometry}
 					material={materials.baked3}
 				/>
@@ -133,7 +134,7 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 				/>
 				<mesh
 					name="frame6"
-					onClick={() => funcs.changeScene(2)}
+					onClick={() => funcs.changeScene(4)}
 					geometry={nodes.frame3.geometry}
 					material={materials.baked3}
 					position={[0, 3, 0]}
@@ -634,21 +635,25 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'de' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh_1"
 						geometry={nodes['Flag_Cylinder-Mesh_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'de' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh_2"
 						geometry={nodes['Flag_Cylinder-Mesh_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'de' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh_3"
 						geometry={nodes['Flag_Cylinder-Mesh_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'de' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh_4"
 						geometry={nodes['Flag_Cylinder-Mesh_4'].geometry}
 						material={materials.baked6}
@@ -661,21 +666,25 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'en' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh003_1"
 						geometry={nodes['Flag_Cylinder-Mesh003_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'en' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh003_2"
 						geometry={nodes['Flag_Cylinder-Mesh003_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'en' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh003_3"
 						geometry={nodes['Flag_Cylinder-Mesh003_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'en' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh003_4"
 						geometry={nodes['Flag_Cylinder-Mesh003_4'].geometry}
 						material={materials.baked6}
@@ -688,21 +697,25 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh004_1"
 						geometry={nodes['Flag_Cylinder-Mesh004_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh004_2"
 						geometry={nodes['Flag_Cylinder-Mesh004_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh004_3"
 						geometry={nodes['Flag_Cylinder-Mesh004_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
+						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
 						name="Flag_Cylinder-Mesh004_4"
 						geometry={nodes['Flag_Cylinder-Mesh004_4'].geometry}
 						material={materials.baked6}
