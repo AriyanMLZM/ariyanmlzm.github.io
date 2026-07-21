@@ -100,11 +100,11 @@ const Model2 = ({
 						geometry={nodes.Cube003.geometry}
 						material={materials['light_sign_green.005']}
 					/>
-					<mesh
+					{/* <mesh
 						name="Cube003_1"
 						geometry={nodes.Cube003_1.geometry}
 						material={materials['light_text.001']}
-					/>
+					/> */}
 				</group>
 				<group
 					name="frame31"
@@ -118,11 +118,11 @@ const Model2 = ({
 						geometry={nodes.Cube004.geometry}
 						material={materials['light_sign_pink.005']}
 					/>
-					<mesh
+					{/* <mesh
 						name="Cube004_1"
 						geometry={nodes.Cube004_1.geometry}
 						material={materials['light_text.001']}
-					/>
+					/> */}
 				</group>
 				<group name="frame41" onClick={() => funcs.changeScene(4)}>
 					<mesh
@@ -131,6 +131,7 @@ const Model2 = ({
 						material={materials['light_sign_blue.005']}
 					/>
 					<mesh
+						position={[0.01, 0, 0]}
 						name="Cube020_1"
 						geometry={nodes.Cube020_1.geometry}
 						material={materials['light_text.001']}
@@ -142,11 +143,11 @@ const Model2 = ({
 						geometry={nodes.Cube034.geometry}
 						material={materials['light_sign_orange.005']}
 					/>
-					<mesh
+					{/* <mesh
 						name="Cube034_1"
 						geometry={nodes.Cube034_1.geometry}
 						material={materials['light_text.001']}
-					/>
+					/> */}
 				</group>
 				<mesh
 					name="holo2"

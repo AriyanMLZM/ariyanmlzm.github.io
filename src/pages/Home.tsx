@@ -13,7 +13,7 @@ import {
 } from 'three'
 
 import { Dog, Model1, Model2, Rain } from '../models'
-import { Gifs, Nav } from '../containers'
+import { Gifs, Nav, SignsText } from '../containers'
 import { Aboutme, Projects, Start, Loader, Musics } from '.'
 import {
 	useGhost,
@@ -157,6 +157,7 @@ const Home = () => {
 						ghosted={ghosted}
 						scene={scene}
 					/>
+					<SignsText />
 					<Title />
 					{start && !ghosted && !isMobile && (
 						<Gifs changeScene={changeScene} isMobile={isMobile} />

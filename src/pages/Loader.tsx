@@ -29,7 +29,7 @@ const Loader = () => {
 						<div className="flex justify-center items-center md:w-[65px] md:h-[65px] w-[45px] h-[45px] border-b-white border-b-4 rounded-full"></div>
 					</div>
 					<h1
-						className="text-white md:text-[25px] text-[18px] mt-5"
+						className="md:text-[30px] text-[20px] mt-5 font-bold text-primary"
 						dir={lang === 'fa' ? 'rtl' : 'ltr'}
 					>
 						{progress.toFixed(1)} %

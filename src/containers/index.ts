@@ -9,8 +9,10 @@ import List from './List'
 import Project from './Project'
 import Music from './Music'
 import Nav from './Nav'
+import SignsText from './SignsText'
 
 export {
+	SignsText,
 	Gifs,
 	Header,
 	Body,
