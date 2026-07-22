@@ -105,7 +105,7 @@ const de = {
 	],
 	menu: {
 		name: 'Ariyan Molazem',
-		about: 'Über mich',
+		about: 'Über',
 		projects: 'Projekte',
 		musics: 'Musik',
 		skills: 'Skills',

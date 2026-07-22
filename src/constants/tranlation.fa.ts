@@ -105,7 +105,7 @@ const fa = {
 	],
 	menu: {
 		name: 'آرین ملازم',
-		about: 'درباره من',
+		about: 'درباره',
 		projects: 'پروژه‌ها',
 		musics: 'موسیقی',
 		skills: 'مهارت‌ها',

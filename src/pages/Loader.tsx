@@ -10,15 +10,15 @@ const Loader = () => {
 			<div
 				className={`flex flex-col items-center justify-center w-screen h-[90%] overflow-hidden select-none ${lang === 'fa' ? 'font-[Vazir]' : 'font-mono'}`}
 			>
-				<div className="h-[30%] flex flex-col justify-center items-center">
+				<div className="h-[30%] flex flex-col justify-center items-center px-[10px]">
 					<h1
-						className="text-primary md:text-[50px] text-[30px]"
+						className="text-primary md:text-[45px] text-[25px] text-center"
 						dir={lang === 'fa' ? 'rtl' : 'ltr'}
 					>
 						{tMenu(($) => $.greet1)}
 					</h1>
 					<h1
-						className="text-white md:text-[40px] text-[22px]"
+						className="text-white md:text-[35px] text-[20px] text-center"
 						dir={lang === 'fa' ? 'rtl' : 'ltr'}
 					>
 						{tMenu(($) => $.greet2)}
@@ -36,10 +36,10 @@ const Loader = () => {
 					</h1>
 				</div>
 				<div
-					className="h-[20%] flex justify-center text-white md:text-[30px] text-[20px]"
+					className="h-[20%] flex justify-center text-white md:text-[28px] text-[18px]"
 					dir={lang === 'fa' ? 'rtl' : 'ltr'}
 				>
-					<h1>{tMenu(($) => $.loading)}</h1>
+					<h1 className="text-center">{tMenu(($) => $.loading)}</h1>
 				</div>
 			</div>
 		</Html>
