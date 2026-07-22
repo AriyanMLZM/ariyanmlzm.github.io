@@ -5,13 +5,13 @@ const LangSelector = () => {
 	const { changeLang, lang } = useLang()
 
 	return (
-		<div className="flex justify-center items-center px-[5px] py-[5px]">
+		<div className="flex justify-center items-center px-[4px] py-[4px]">
 			<Button2
 				func={() => changeLang('en')}
 				className={
 					lang === 'en'
-						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
-						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
+						? 'border-[2px] border-primary rounded-full px-[4px] py-[4px]'
+						: 'px-[4px] py-[4px] hover:bg-slate-600/70 rounded-full'
 				}
 			>
 				<svg
@@ -42,8 +42,8 @@ const LangSelector = () => {
 				func={() => changeLang('de')}
 				className={
 					lang === 'de'
-						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
-						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
+						? 'border-[2px] border-primary rounded-full px-[4px] py-[4px]'
+						: 'px-[4px] py-[4px] hover:bg-slate-600/70 rounded-full'
 				}
 			>
 				<svg
@@ -69,8 +69,8 @@ const LangSelector = () => {
 				func={() => changeLang('fa')}
 				className={
 					lang === 'fa'
-						? 'border-[2px] border-primary rounded-full px-[5px] py-[5px]'
-						: 'px-[5px] py-[5px] hover:bg-slate-600/70 rounded-full'
+						? 'border-[2px] border-primary rounded-full px-[4px] py-[4px]'
+						: 'px-[4px] py-[4px] hover:bg-slate-600/70 rounded-full'
 				}
 			>
 				<svg

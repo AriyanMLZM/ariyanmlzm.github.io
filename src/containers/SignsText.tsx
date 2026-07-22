@@ -11,7 +11,7 @@ const SignsText = () => {
 				textAlign="center"
 				color="black"
 				font={lang === 'fa' ? vazirB : poppinsB}
-				fontSize={lang === 'de' ? 0.45 : 0.55}
+				fontSize={0.55}
 				fontWeight={700}
 			>
 				{tMenu(($) => $.about)}

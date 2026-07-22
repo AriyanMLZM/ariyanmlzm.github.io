@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { Group } from 'three'
 
@@ -9,9 +9,10 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 	const { nodes, animations } = useGLTF(modelGltf) as any
 	const group = useRef<Group>(null)
 	const { actions } = useAnimations(animations, group)
+	const [hovered, setHovered] = useState(0)
 
 	const materials = useMaterials()
-	const { lang } = useLang()
+	const { lang, changeLang } = useLang()
 
 	useEffect(() => {
 		if (!ghosted) actions['anthenaAction']!.play()
@@ -628,94 +629,157 @@ const Model1 = ({ funcs, ghosted }: { funcs: any; ghosted: boolean }) => {
 					geometry={nodes.bottleKetchup.geometry}
 					material={materials.baked3}
 				/>
-				<group name="germany">
+				<group
+					name="germany"
+					onClick={() => changeLang('de')}
+					onPointerOver={() => setHovered(2)}
+					onPointerLeave={() => setHovered(0)}
+				>
 					<mesh
 						name="Flag_Cylinder-Mesh"
 						geometry={nodes['Flag_Cylinder-Mesh'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'de' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'de' ? -0.14 : hovered === 2 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh_1"
 						geometry={nodes['Flag_Cylinder-Mesh_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'de' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'de' ? -0.14 : hovered === 2 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh_2"
 						geometry={nodes['Flag_Cylinder-Mesh_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'de' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'de' ? -0.14 : hovered === 2 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh_3"
 						geometry={nodes['Flag_Cylinder-Mesh_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'de' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'de' ? -0.14 : hovered === 2 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh_4"
 						geometry={nodes['Flag_Cylinder-Mesh_4'].geometry}
 						material={materials.baked6}
 					/>
 				</group>
-				<group name="eng">
+				<group
+					name="eng"
+					onClick={() => changeLang('en')}
+					onPointerOver={() => setHovered(1)}
+					onPointerLeave={() => setHovered(0)}
+				>
 					<mesh
 						name="Flag_Cylinder-Mesh003"
 						geometry={nodes['Flag_Cylinder-Mesh003'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'en' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'en' ? -0.14 : hovered === 1 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh003_1"
 						geometry={nodes['Flag_Cylinder-Mesh003_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'en' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'en' ? -0.14 : hovered === 1 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh003_2"
 						geometry={nodes['Flag_Cylinder-Mesh003_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'en' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'en' ? -0.14 : hovered === 1 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh003_3"
 						geometry={nodes['Flag_Cylinder-Mesh003_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'en' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'en' ? -0.14 : hovered === 1 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh003_4"
 						geometry={nodes['Flag_Cylinder-Mesh003_4'].geometry}
 						material={materials.baked6}
 					/>
 				</group>
-				<group name="iran">
+				<group
+					name="iran"
+					onClick={() => changeLang('fa')}
+					onPointerOver={() => setHovered(3)}
+					onPointerLeave={() => setHovered(0)}
+				>
 					<mesh
 						name="Flag_Cylinder-Mesh004"
 						geometry={nodes['Flag_Cylinder-Mesh004'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'fa' ? -0.14 : hovered === 3 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh004_1"
 						geometry={nodes['Flag_Cylinder-Mesh004_1'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'fa' ? -0.14 : hovered === 3 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh004_2"
 						geometry={nodes['Flag_Cylinder-Mesh004_2'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'fa' ? -0.14 : hovered === 3 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh004_3"
 						geometry={nodes['Flag_Cylinder-Mesh004_3'].geometry}
 						material={materials.baked6}
 					/>
 					<mesh
-						position={[0, lang === 'fa' ? -0.14 : 0, 0]}
+						position={[
+							0,
+							lang === 'fa' ? -0.14 : hovered === 3 ? -0.025 : 0,
+							0,
+						]}
 						name="Flag_Cylinder-Mesh004_4"
 						geometry={nodes['Flag_Cylinder-Mesh004_4'].geometry}
 						material={materials.baked6}
